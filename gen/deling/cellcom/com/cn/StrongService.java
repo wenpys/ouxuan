@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\workspace\\ouxuan\\src\\deling\\cellcom\\com\\cn\\StrongService.aidl
+ * Original file: D:\\360тфел\\Android\\workspace\\ouxuan\\src\\deling\\cellcom\\com\\cn\\StrongService.aidl
  */
 package deling.cellcom.com.cn;
 public interface StrongService extends android.os.IInterface
