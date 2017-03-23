@@ -37,7 +37,20 @@
             android:background="@drawable/main_bg_bottom"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="2dp" >
+            android:paddingTop="2dp" >      
+
+            <RadioButton
+                android:id="@+id/tab_rb_e"
+                style="@style/app_small_textStyle5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:drawableTop="@drawable/ren"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/main_center" />   
 
             <RadioButton
                 android:id="@+id/tab_rb_a"
@@ -50,7 +63,7 @@
                 android:drawableTop="@drawable/bugle"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@string/main_msg" />
+                android:text="@string/main_show" />
 
 
             <RadioButton
@@ -64,10 +77,10 @@
                 android:drawableTop="@drawable/opendoor"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@string/main_km" />            
+                android:text="@string/main_sale" />             
 
             <RadioButton
-                android:id="@+id/tab_rb_e"
+                android:id="@+id/tab_rb_f"
                 style="@style/app_small_textStyle5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -77,7 +90,7 @@
                 android:drawableTop="@drawable/ren"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@string/main_gr" />
+                android:text="@string/main_person" />
         </RadioGroup>
 
         <RadioButton

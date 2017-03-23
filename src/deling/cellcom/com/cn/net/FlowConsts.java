@@ -410,6 +410,28 @@ public class FlowConsts {
 	// 修改密码
 	public static String UPDATEPWD = SERVICE_IP + "/User/changePassword.json";
 	
+	// 修改用户信息
+	public static String UPDATEUSER = SERVICE_IP + "/User/change.json";
+	
+	// 上传用户意向
+	public static String USERINTENT = SERVICE_IP + "/Public/userIntent.json";
+
+	// 云视终端接口
+	// 获取直播间ID
+	public static String GETROOMID = SERVICE_IP + "/Terminal/getRoomId.json";
+	
+	// 二维码链接
+	public static String QRCODE = SERVICE_IP + "/Terminal/qrCode.json";
+	
+	// 记录问题
+	public static String LOGPROBLEM = SERVICE_IP + "/Terminal/problem.json";
+	
+	// 上传视频点播数据
+	public static String UPVIDEO = SERVICE_IP + "/Terminal/uploadVideo.json";
+	
+	// 上传关键字数据
+	public static String UPKEYWORD = SERVICE_IP + "/Terminal/uploadKeyword.json";
+	
 	// 查询钥匙
 	public static String KEYINFO = SERVICE_IP + "/dl_keyinfo";
 	

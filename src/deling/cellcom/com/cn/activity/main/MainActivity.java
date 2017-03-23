@@ -334,7 +334,7 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 		initListener();
 		initData();
 //		addLBT();
-		tabRbCenter.setChecked(true);
+		tabRbPerson.setChecked(true);
 		
 		registerMessageReceiver();
 		
@@ -354,14 +354,7 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	private void alertAD(){
 		String isFirstLogin = PreferencesUtils.getString(MainActivity.this,"is_first_login");
 		String vendor = android.os.Build.MANUFACTURER.toLowerCase();
-//		int vendorid = 0;
-//		if(vendor.equals("meizu")){
-//			vendorid = R.drawable.meizu;
-//		}else if(vendor.equals("huawei")){
-//			vendorid = R.drawable.huawei;
-//		}else if(vendor.equals("miui")){
-//			vendorid = R.drawable.miui;
-//		}
+
 		//广告弹窗
 		if (TextUtils.isEmpty(isFirstLogin)) {
 			PreferencesUtils.putString(MainActivity.this, "is_first_login", "N");
@@ -393,28 +386,7 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	}
 	@SuppressLint("NewApi")
 	private void initData() {
-		isSharkOpen = PreferencesUtils.getBoolean(MainActivity.this,
-				"shark_open", true);
 		Log.e(TAG,"isSharkOpen="+isSharkOpen);
-		MyApplication.getInstances().setSharkOpen(isSharkOpen);
-		//获取钥匙
-		if(isNetworkConnected(this)){
-			getKeyInfo();
-			boolean isAuLogin = PreferencesUtils.getBoolean(MainActivity.this, "autologin",false);
-			Log.e("MYTAG","isAuto="+isAuLogin);
-			if(isAuLogin)
-				getNetData();
-		}else{
-			keylist.clear();
-			keylist.addAll(MyApplication.getInstances().getKeylist());
-	        Message message=new Message();
-	        message.what=SCANDEVICE;
-	        handler.sendMessageDelayed(message, 0);
-		}
-		
-		cacheIndexADImg = PreferencesUtils.getString(MainActivity.this, "indexadurl","").split(",");
-		cacheIndexADLink = PreferencesUtils.getString(MainActivity.this, "indexadlink","").split(",");
-		
 		
 		MyApplication.getInstances().setHandler(handler);
 //		AutoOpenThread = new autoThread(handler);
@@ -430,30 +402,6 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 		
 		getDrawable();
 		manager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-		//判断蓝牙是否打开
-//		if(!isBluetoothEnabled()){
-//			myDialog = new AlertDialog.Builder(this).create();
-//			myDialog.show();
-//			 myDialog.getWindow().setContentView(R.layout.app_alertdialog_popup);
-//			 TextView tvContent =  (TextView) myDialog.getWindow().findViewById(R.id.tv_content);
-//			 Button btSetting =  (Button) myDialog.getWindow().findViewById(R.id.btn_ok);
-//			 Button btCancel =  (Button) myDialog.getWindow().findViewById(R.id.btn_cancel);
-//			 tvContent.setText("打开蓝牙来允许\"得令开门\"\n连接到配件");
-//			 btSetting.setText("设置");
-//			 btCancel.setText("好");
-//			 btSetting.setOnClickListener(new View.OnClickListener() {  
-//                 @Override  
-//                 public void onClick(View v) {  
-//                	 startActivity(new Intent(Settings.ACTION_BLUETOOTH_SETTINGS));
-//                 }  
-//             });   
-//			 btCancel.setOnClickListener(new View.OnClickListener() {  
-//                 @Override  
-//                 public void onClick(View v) {  
-//                     myDialog.dismiss();  
-//                 }  
-//             });  
-//		}
 
 		personFm = new PersonFm();
 		noticeFragment = new NoticeFragment();
@@ -467,37 +415,6 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 		vpContent.setOffscreenPageLimit(3);
 
 		vpContent.setCurrentItem(curFrm, true);
-		
-		mainFragment.isBlueOn = isBluetoothEnabled();
-		
-		//获取广告
-//		getIndexAD();
-		
-		//首次打开弹出设置指导
-//		alertAD();
-//		ImageView iv = new ImageView(this);  
-//		iv.setBackground(getResources().getDrawable(R.drawable.dot));
-//		iv.setOnClickListener(new OnClickListener() {
-//        	 
-//            @Override
-//            public void onClick(View v) {
-////                Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
-//            	ComponentName componetName = new ComponentName(  
-//                        //这个是另外一个应用程序的包名   
-//                       "cellcom.com.cn.panyuweather",  
-//                       //这个参数是要启动的Activity   
-//                       "cellcom.com.cn.panyuweather.activity.MainActivity");   
-//               Intent intent= new Intent();
-//               Bundle bundle = new Bundle();  
-//               bundle.putString("arge1", "这是跳转过来的！来自apk1");  
-//               intent.putExtras(bundle);  
-//               intent.setComponent(componetName);  
-//               startActivity(intent);
-//            }
-//        });
-//        initDestopText(iv);
-		
-//        OpenActivity(KeepLiveActivity.class);
 	}
 	
 	private void initListener() {

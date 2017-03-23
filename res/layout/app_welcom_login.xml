@@ -59,6 +59,7 @@
 	            android:background="@drawable/dl_ed_bg"
 	            android:paddingLeft="5dp"
 	            android:layout_marginLeft="5dp"
+	            android:paddingRight="70dp"
 	            android:hint="@string/welcome_sjhm"
 	            android:inputType="numberSigned"
 	            android:maxLength="11"
@@ -111,14 +112,14 @@
 	            android:paddingLeft="5dp"
 	            android:layout_marginLeft="5dp"
 	            android:paddingRight="70dp"
-	            android:hint="短信验证码"
+	            android:hint="请输入密码"
 	            android:inputType="numberSigned"
-	            android:maxLength="4"
 	            android:textSize="16sp"
 	            android:textColorHint="@color/gray_light"
 	            android:textColor="@color/black"  />
 	        
 	        <Button
+		    	android:visibility="gone"
 	            android:id="@+id/yzmbtn"
 	            style="@style/app_medium_textStyle"
 	            android:layout_width="wrap_content"
@@ -188,14 +189,14 @@
         android:visibility="gone" />
     
    	<TextView
-	    android:visibility="gone"
         android:id="@+id/forget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColor="@color/white"
+        android:layout_marginLeft="50dp"
+        android:textColor="@color/blue_light"
         android:textSize="14sp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="left"
         android:text="忘记密码？" />
 
 </LinearLayout>
