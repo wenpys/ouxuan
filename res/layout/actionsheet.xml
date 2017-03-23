@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+    <TextView
+        android:id="@+id/take_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_top_selector"
+        android:gravity="center"
+        android:text="拍照"
+        style="@style/app_textStyle2"
+        />
+
+    <TextView
+        android:id="@+id/choose_local"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_bottom_selector"
+        android:gravity="center"
+        android:text="选择本地"
+        style="@style/app_textStyle2"/>
+    
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_top_selector"
+        android:gravity="center"
+        android:text="预览"
+        style="@style/app_textStyle2"/>
+    
+    <TextView
+        android:id="@+id/tv_download"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionsheet_bottom_selector"
+        android:gravity="center"
+        android:text="下载"
+        style="@style/app_textStyle2"
+        />
+    
+    <TextView
+        android:id="@+id/delete_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/actionsheet_single_selector"
+        android:gravity="center"
+        android:text="删除图片"
+        style="@style/app_textStyle2" />
+
+    <LinearLayout
+        android:id="@+id/share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/actionsheet_single_selector">        
+        
+	    <LinearLayout
+	        android:id="@+id/ll_wechat"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:layout_margin="15dp"
+	        android:orientation="vertical">
+	        
+	         <ImageView
+		        android:id="@+id/wechat"
+		        android:layout_width="50dp"
+		        android:layout_height="50dp"
+		        android:layout_marginTop="10dp"
+		        android:layout_centerHorizontal="true"
+		        android:scaleType="fitXY"
+		        android:src="@drawable/umeng_socialize_wechat" />
+	         
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="20dp"
+			    android:id="@+id/pltform_name"
+			    android:layout_alignParentBottom="true"
+			    android:layout_marginBottom="4dp"
+			    android:layout_centerHorizontal="true"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:text="微信朋友"
+			    android:singleLine="true"
+			    android:textSize="11sp"
+			    android:gravity="center"/>
+		</LinearLayout>
+		
+	    <LinearLayout
+	        android:id="@+id/ll_wxcircle"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:layout_margin="15dp"
+	        android:gravity="center">
+	        
+	         <ImageView
+		        android:id="@+id/wx_circle"
+		        android:layout_width="50dp"
+		        android:layout_height="50dp"
+		        android:layout_marginTop="10dp"
+		        android:layout_centerHorizontal="true"
+		        android:scaleType="fitXY"
+		        android:src="@drawable/umeng_socialize_wxcircle" />
+	         
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="20dp"
+			    android:id="@+id/pltform_name"
+			    android:layout_alignParentBottom="true"
+			    android:layout_marginBottom="4dp"
+			    android:layout_centerHorizontal="true"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:text="微信朋友圈"
+			    android:singleLine="true"
+			    android:textSize="11sp"
+			    android:gravity="center"/>
+		</LinearLayout>
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/actionsheet_single_selector"
+        android:gravity="center"
+        android:text="@string/app_btnno"
+        android:textColor="#037BFF"
+        android:textSize="16sp" />
+
+</LinearLayout>

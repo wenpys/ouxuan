@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cellcom.com.cn.deling"
+    android:versionCode="1"
+    android:versionName="1.7" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+
+    <permission
+        android:name="cellcom.com.cn.deling.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CAMERA" >
+    </uses-permission>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="cellcom.com.cn.deling.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <application
+        android:name="deling.cellcom.com.cn.activity.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:persistent="true"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="MIAODOU_APP_KEY"
+            android:value="17eaa49b4f2ed5724e7efc92b75ed4da" >
+        </meta-data>
+        <meta-data
+            android:name="service"
+            android:value="dl" />
+        <meta-data
+            android:name="flow"
+            android:resource="@array/flowset" />
+        <meta-data
+            android:name="sysparamflow"
+            android:value="ykys_getykysdata" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="64FyhxKetQUqZsgzMgh7DsZ2hOCYTPHG" />
+
+        <activity android:name="deling.cellcom.com.cn.activity.main.LaunchActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="deling.cellcom.com.cn.activity.main.WeiXinOpenActivity">
+            <intent-filter>  
+	           <category android:name="android.intent.category.BROWSABLE" />
+	           <category android:name="android.intent.category.DEFAULT" />  
+	           <action android:name="android.intent.action.VIEW" />  
+	           <data  
+	               android:host="ideling.com"  
+	               android:pathPrefix="/start"  
+	               android:scheme="deling" />  
+	       </intent-filter>
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.main.MainActivity"
+            android:label="@string/title_activity_launch"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.main.GuideActivity"
+            android:label="@string/title_activity_guide"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.DeviceListActivity"
+            android:label="@string/title_activity_guide"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.welcome.RegisterActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.welcome.LoginActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.welcome.ForgetActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.SettingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.widget.zhy.PicSelectActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.WebViewActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.zxing.activity.CaptureActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.FaultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.ProblemActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.AboutActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.AuthoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.CouponActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.AskKeyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.AskKeyByScanActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.MyKeyActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.AddAuthoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.ApplyKeyLogActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name="deling.cellcom.com.cn.service.UpBaseDataService" />
+        <service android:name="com.hzblzx.miaodou.sdk.core.bluetooth.NRFUartService" />
+        <service android:name="com.hzblzx.miaodou.sdk.core.bluetooth.CSRUartService" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UMDefault" />
+        <activity
+            android:name="com.umeng.soexample.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="57be8674e0f55a46cc0042aa" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="FIR" >
+        </meta-data>
+
+        <!-- Rich push 核心功能 since 2.0.6 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="false" >
+        </activity>
+
+        <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="cellcom.com.cn.deling" />
+            </intent-filter>
+        </activity>
+        <!-- Required  SDK核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+
+        <!-- Required SDK 核心功能 -->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+
+                <category android:name="cellcom.com.cn.deling" />
+            </intent-filter>
+        </service>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter android:priority="1000" >
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <!-- Required  显示通知栏 -->
+                <category android:name="cellcom.com.cn.deling" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.AlarmReceiver"
+            android:exported="false" />
+
+        <!-- User defined.  For test only  用户自定义的广播接收器 -->
+        <receiver
+            android:name="deling.cellcom.com.cn.jpush.MyReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="cellcom.com.cn.deling" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required  . Enable it you can get statistics data with channel -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="9799820c954de59acd1137af" />
+        <!-- </>值来自开发者平台取得的AppKey -->
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.MyKeyTwoActivity"
+            android:label="@string/title_activity_my_key_two" >
+        </activity>
+        <activity android:name="deling.cellcom.com.cn.activity.me.AgreementActivity" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.main.AdDialogActivity"
+            android:hardwareAccelerated="false"
+            android:theme="@style/MyDialogStyle" >
+        </activity>
+        <activity
+            android:name="deling.cellcom.com.cn.activity.me.KeyLogDetailsPassActivity"
+            android:label="@string/title_activity_key_log_details_pass" >
+        </activity>
+        
+        <service android:name="deling.cellcom.com.cn.service.MonitorService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" >
+            <intent-filter android:priority="1000" >
+                <action android:name="deling.cellcom.com.cn.service.MonitorService" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="deling.cellcom.com.cn.activity.me.SelectKeysActivity" >
+        </activity>
+        <activity android:name="deling.cellcom.com.cn.activity.me.AuthoDetailActivity" >
+        </activity>
+
+        <service
+            android:name="com.dh.bluelock.service.BluetoothBoardService"
+            android:enabled="true" 
+            android:process=":monitor">
+		</service>
+        <service android:name="deling.cellcom.com.cn.service.MonitorService2"
+            android:enabled="true">
+		</service>
+        <service android:name="deling.cellcom.com.cn.service.InnerService"
+            android:enabled="true">
+		</service>
+        <service android:name="com.dh.bluelock.service.BluetoothBoardService" android:enabled="true" ></service>
+		<activity android:name="deling.cellcom.com.cn.activity.me.SelectKeysActivity"></activity>
+        <activity android:name="deling.cellcom.com.cn.activity.me.AuthoDetailActivity"></activity>
+        <activity android:name="deling.cellcom.com.cn.activity.me.MyKeyDetialActivity"></activity>
+        <activity 
+            android:name="deling.cellcom.com.cn.activity.main.KeepLiveActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:finishOnTaskLaunch="false"
+            android:launchMode="singleInstance"
+            android:theme="@style/LiveActivityStyle">
+        </activity>
+    </application>
+	<!-- 硬件SDK支持 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+</manifest>

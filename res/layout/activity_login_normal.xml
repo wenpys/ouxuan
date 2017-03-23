@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lock" >
+
+    <TextView
+        android:id="@+id/tvtitle"
+        style="@style/app_textStyle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:text="@string/main_person_qsrssmm" />
+
+    <deling.cellcom.com.cn.weiget.lock9.Lock9View
+        android:id="@+id/lock_9_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:lock9_lineColor="@color/blue_light"
+        app:lock9_lineWidth="4dp"
+        app:lock9_nodeOnAnim="@anim/node_on_1"
+        app:lock9_nodeOnSrc="@drawable/node_active"
+        app:lock9_nodeSrc="@drawable/node_normal"
+        app:lock9_padding="28dp"
+        app:lock9_spacing="28dp" />
+
+    <TextView
+        style="@style/app_textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_wjssmm"
+            style="@style/app_textStyle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/main_person_wjssmm" />
+
+        <TextView
+            android:id="@+id/tv_xgssmm"
+            style="@style/app_textStyle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/main_person_xgssmm" />
+    </LinearLayout>
+
+</FrameLayout>

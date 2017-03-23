@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_white" >
+
+    <deling.cellcom.com.cn.widget.Header
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_head_height"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/rl_advert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/main_top"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/rl_advert"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioGroup
+            android:id="@+id/tabs_rg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="2dp" >
+
+            <RadioButton
+                android:id="@+id/ysc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1.0"
+                android:background="@drawable/tab_bg"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="已收藏（0）"
+                android:textColor="@drawable/tab_text_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/ygq"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1.0"
+                android:background="@drawable/tab_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="已过期（0）"
+                android:textColor="@drawable/tab_text_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/tab_rb_a"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1.0"
+                android:background="@drawable/tab_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="已使用（0）"
+                android:textColor="@drawable/tab_text_selector"
+                android:textSize="16sp"
+                android:visibility="invisible" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_collect"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/main_top"
+        android:layout_margin="10dp"
+        android:divider="@color/gray_white"
+        android:dividerHeight="10dp"/>
+
+    <ListView
+        android:id="@+id/lv_overdue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/main_top" 
+        android:layout_margin="10dp"
+        android:divider="@color/gray_white"
+        android:dividerHeight="10dp"
+        android:visibility="gone"/>
+</RelativeLayout>

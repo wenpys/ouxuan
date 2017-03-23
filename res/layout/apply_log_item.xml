@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/umeng_socialize_shareboard_item_background"
+	android:descendantFocusability="blocksDescendants">
+
+    <LinearLayout 
+        android:id="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+       	android:layout_marginLeft="15dp"
+       	android:layout_marginRight="15dp">
+	    
+		<TextView 
+		    android:id="@+id/bsqhm"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:drawableLeft="@drawable/sqsj"
+		    android:drawablePadding="2dp"
+		    android:text="申请时间："
+		    android:textColor="@color/gray"
+		    android:singleLine="true"
+		    android:textSize="14sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+		
+		<TextView 
+		    android:id="@+id/date"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:layout_marginRight="2dp"
+		    android:text="2016-07-28 16:25:34"
+		    android:singleLine="true"
+		    android:textSize="14sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/first"
+        android:layout_marginTop="15dp"
+       	android:layout_marginLeft="15dp"
+       	android:layout_marginRight="15dp">
+	
+	    <TextView 
+		    android:id="@+id/bsqhm"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:drawableLeft="@drawable/sqxq"
+		    android:drawablePadding="2dp"
+		    android:text="申请小区："
+		    android:textColor="@color/gray"
+		    android:singleLine="true"
+		    android:textSize="14sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+		
+		<TextView 
+		    android:id="@+id/place"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:layout_marginRight="2dp"
+		    android:text="乐意居花苑  B栋  803房"
+		    android:singleLine="true"
+		    android:textSize="14sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+        
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/second"
+        android:layout_marginTop="15dp"
+       	android:layout_marginLeft="15dp"
+       	android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp">
+	
+	    <TextView 
+		    android:id="@+id/bsqhm"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:drawableLeft="@drawable/sqzt"
+		    android:drawablePadding="2dp"
+		    android:text="申请状态："
+		    android:textColor="@color/gray"
+		    android:singleLine="true"
+		    android:textSize="14sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+		
+		<TextView 
+		    android:id="@+id/state"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:layout_marginRight="2dp"
+		    android:text="已通过"
+		    android:singleLine="true"
+		    android:textSize="14sp"
+		    android:textColor="@color/green"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>     
+    </LinearLayout>
+
+</RelativeLayout>

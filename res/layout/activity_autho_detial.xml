@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainll"
+    style="@style/app_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerVertical="true"
+    android:orientation="vertical" >
+
+    <deling.cellcom.com.cn.widget.Header
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_head_height"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_item_bg"
+        android:orientation="vertical">
+        
+        <TextView
+            android:id="@+id/keyid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+        
+		<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/app_lineitemselector"
+	        android:minHeight="@dimen/ll_minheight"
+	        android:paddingLeft="25dp"
+	        android:paddingRight="@dimen/activity_right_padding" >
+
+		    <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="18sp"
+	            android:textColor="@color/gray"
+	            android:text="真实姓名"
+		        />
+		    
+			<TextView
+	            android:id="@+id/name"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+	            android:background="@null"
+	            android:text=""
+	            android:minHeight="@dimen/ll_minheight"
+	            android:textSize="18sp"
+	            android:paddingBottom="15dp"
+	            android:paddingTop="15dp"
+	            android:textColorHint="#b5b5b5" />
+			
+	    </LinearLayout>
+	    
+	    <ImageView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:contentDescription="@null"
+	        android:scaleType="fitXY"
+	        android:src="@color/line_color"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp" />
+	    
+		<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/app_lineitemselector"
+	        android:minHeight="@dimen/ll_minheight"
+	        android:paddingLeft="25dp"
+	        android:paddingRight="@dimen/activity_right_padding" >
+
+		    <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="18sp"
+	            android:textColor="@color/gray"
+	            android:text="手机号码"
+		        />
+
+			<TextView
+	            android:id="@+id/phone"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+	            android:background="@null"
+	            android:inputType="number"
+	            android:minHeight="@dimen/ll_minheight"
+	            android:textSize="18sp"
+	            android:paddingBottom="15dp"
+	            android:paddingTop="15dp"
+	            android:textColorHint="#b5b5b5" />
+			
+	    </LinearLayout>
+	    
+	    <ImageView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:contentDescription="@null"
+	        android:scaleType="fitXY"
+	        android:src="@color/line_color"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp" />
+	    
+		<RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/app_lineitemselector"
+	        android:minHeight="@dimen/ll_minheight"
+	        android:paddingLeft="25dp"
+	        android:paddingRight="@dimen/activity_right_padding" >
+
+		    <TextView
+		        android:id="@+id/jsgx"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="18sp"
+	            android:textColor="@color/gray"
+	            android:layout_centerVertical="true"
+	            android:text="家属关系"
+		        />
+
+			<TextView
+	            android:id="@+id/identity"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_toRightOf="@+id/jsgx"
+	            android:background="@null"
+	            android:textColorHint="#b5b5b5"
+				android:textSize="18sp"
+	            android:minHeight="@dimen/ll_minheight"
+	            android:paddingBottom="15dp"
+	            android:paddingTop="15dp"/>
+	    </RelativeLayout>
+	    
+	    <ImageView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:contentDescription="@null"
+	        android:scaleType="fitXY"
+	        android:src="@color/line_color"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp" />
+	    
+		<RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/app_lineitemselector"
+	        android:minHeight="@dimen/ll_minheight"
+	        android:paddingLeft="25dp"
+	        android:paddingRight="@dimen/activity_right_padding" >
+
+		    <TextView 
+		        android:id="@+id/sqys"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="18sp"
+	            android:layout_centerVertical="true"
+	            android:textColor="@color/gray"
+	            android:text="授权钥匙"
+		        />
+
+			<TextView
+	            android:id="@+id/authokey"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@+id/sqys"
+                android:layout_marginLeft="25dp"
+	            android:background="@null"
+	            android:textColorHint="#b5b5b5"
+				android:textSize="18sp"
+	            android:inputType="number"
+	            android:minHeight="@dimen/ll_minheight"
+	            android:paddingBottom="15dp"
+	            android:paddingTop="15dp"/>
+	    </RelativeLayout>
+	    
+	    <ImageView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:contentDescription="@null"
+	        android:scaleType="fitXY"
+	        android:src="@color/line_color"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp" />
+	    
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/app_lineitemselector"
+	        android:minHeight="@dimen/ll_minheight"
+	        android:paddingLeft="25dp"
+	        android:paddingRight="@dimen/activity_right_padding" >
+
+		    <TextView 
+		        android:id="@+id/ysqx"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="18sp"
+	            android:layout_centerVertical="true"
+	            android:textColor="@color/gray"
+	            android:text="钥匙期限"
+		        />
+
+			<TextView
+	            android:id="@+id/expiry"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@+id/ysqx"
+                android:layout_marginLeft="25dp"
+	            android:background="@null"
+	            android:textColorHint="#b5b5b5"
+				android:textSize="18sp"
+	            android:minHeight="@dimen/ll_minheight"
+	            android:paddingBottom="15dp"
+	            android:paddingTop="15dp"
+	            android:singleLine="true"
+				android:focusable="true"
+				android:ellipsize="none"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:focusableInTouchMode="true"/>
+	    </RelativeLayout>
+	    
+	    <ImageView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:contentDescription="@null"
+	        android:scaleType="fitXY"
+	        android:src="@color/line_color"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp" />
+	   
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/app_lineitemselector"
+	        android:minHeight="@dimen/ll_minheight"
+	        android:paddingLeft="25dp"
+	        android:paddingRight="@dimen/activity_right_padding" >
+
+		    <TextView 
+		        android:id="@+id/ysqx2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="18sp"
+	            android:layout_centerVertical="true"
+	            android:textColor="@color/gray"
+	            android:text="状　　态"
+		        />
+
+			<TextView
+	            android:id="@+id/state"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@+id/ysqx2"
+                android:layout_marginLeft="25dp"
+	            android:background="@null"
+	            android:textColorHint="#b5b5b5"
+				android:textSize="18sp"
+	            android:minHeight="@dimen/ll_minheight"
+	            android:paddingBottom="15dp"
+	            android:paddingTop="15dp"
+	            android:singleLine="true"
+				android:focusable="true"
+				android:ellipsize="none"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:focusableInTouchMode="true"/>
+	    </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    
+    <Button
+        android:id="@+id/submitbtn"
+        android:textSize="20sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/app_btnselector"
+        android:gravity="center"
+        android:minHeight="@dimen/btn_minheight"
+        android:text="取消授权"
+        android:textColor="@color/white" />
+    <Button
+        android:id="@+id/rejectbtn"
+        android:textSize="20sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/app_btnselector_red"
+        android:gravity="center"
+        android:minHeight="@dimen/btn_minheight"
+        android:text="拒绝授权"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+</LinearLayout>

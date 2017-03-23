@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/lib/cellcom.com.cn.huizhouweather"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <deling.cellcom.com.cn.widget.viewflow.ViewFlow
+        android:id="@+id/guide"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </deling.cellcom.com.cn.widget.viewflow.ViewFlow>
+
+    <TextView
+        android:background="@drawable/app_btn_disable"
+        android:id="@+id/tv_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="top|right"
+        android:gravity="center_vertical"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="点击跳过"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:padding="3dip" >
+
+        <deling.cellcom.com.cn.widget.viewflow.CircleFlowIndicator
+            android:id="@+id/guide_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:padding="5dip"
+            app:activeColor="#ff0000"
+            app:activeType="fill"
+            app:circleSeparation="20dip"
+            app:inactiveColor="@color/blue"
+            app:inactiveType="fill"
+            app:radius="5dip" />
+    </LinearLayout>
+
+</FrameLayout>

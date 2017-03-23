@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#00000000</color>
+    <color name="listbg">#FFF8F8F8</color>
+    <color name="white">#FFFFFF</color>
+    <color name="light_blue">#ADD8E6</color>
+    <color name="line_color">#E4E2E2</color>
+    <color name="green">#3BA831</color>
+    <color name="blue">#0000ff</color>
+    <color name="grey">#ECECEC</color>
+    <color name="wallet">#EBEBEB</color>
+    <color name="lightgrey">#EEEFEE</color>
+    <color name="blackgrey">#303030</color>
+    <color name="darkgrey">#8C8C8C</color>
+    <color name="red">#E00909</color>
+    <color name="male">#ff3EB134</color>
+    <color name="female">#ffEC5885</color>
+    <color name="receive">#ffD35E0E</color>
+
+    <!-- caldroid -->
+    <color name="caldroid_white">#FFFFFF</color>
+    <color name="caldroid_black">#000000</color>
+    <color name="caldroid_transparent">#00000000</color>
+    <!-- For settings framework -->
+    <color name="caldroid_lighter_gray">#ddd</color>
+    <color name="caldroid_gray">#CCC</color>
+    <color name="caldroid_darker_gray">#aaa</color>
+    <color name="caldroid_middle_gray">#888</color>
+    <!-- A light Holo shade of blue -->
+    <color name="caldroid_holo_blue_light">#3BA831</color>
+    <!-- A dark Holo shade of blue -->
+    <color name="caldroid_holo_blue_dark">#ff0099cc</color>
+    <!-- A really bright Holo shade of blue -->
+    <color name="caldroid_sky_blue">#FFA3E8F7</color>
+    <color name="caldroid_333">#333</color>
+    <color name="caldroid_555">#555</color>
+    <color name="caldroid_light_red">#ff7f7f</color>
+    <color name="red_light">#ffff4444</color>
+    <color name="green_light">#ff99cc00</color>
+    <color name="blue_light">#ff33b5e5</color>
+    <color name="color_black">#000000</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_gray_light">#99C9C9C9</color>
+
+    <!-- <color name="viewfinder_corner">#7CFC00</color> -->
+    <color name="viewfinder_corner">#FF0000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="os_app_bg">#ebebeb</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="gray_white">#f3f3f3</color>
+        <!-- 日期选择器 相关 -->
+    <color name="pickerview_timebtn_nor">#057dff</color>
+    <color name="pickerview_timebtn_pre">#c2daf5</color>
+    <color name="pickerview_bg_topbar">#f5f5f5</color>
+    <color name="pickerview_topbar_title">#000000</color>
+    <color name="pickerview_wheelview_textcolor_out">#a8a8a8</color>
+    <color name="pickerview_wheelview_textcolor_center">#2a2a2a</color>
+    <color name="pickerview_wheelview_textcolor_divider">#d5d5d5</color>
+            <!--覆盖颜色-->
+    <color name="bgColor_overlay">#60000000</color>
+
+</resources>

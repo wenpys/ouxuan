@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainll"
+    style="@style/app_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerVertical="true"
+    android:orientation="vertical" >
+
+    <deling.cellcom.com.cn.widget.Header
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_head_height"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_top_margin"
+        android:background="@drawable/app_item_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:minHeight="@dimen/ll_minheight"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/activity_bottom_padding"
+            android:paddingTop="@dimen/activity_top_padding" >
+
+            <TextView
+                android:id="@+id/sjhm"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="right"
+                android:text="手机号码"
+                 android:textSize="15sp"
+                android:textColor="@color/darkgrey" />
+
+            <EditText
+                android:id="@+id/countet"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/et_border"
+                android:padding="5dp"
+                android:textSize="14sp"
+                android:hint="@string/welcome_sjhm"
+                android:inputType="phone"
+                android:minHeight="@dimen/yhk_minheight"
+                android:textColorHint="#c5c5c5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:minHeight="@dimen/ll_minheight"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/activity_bottom_padding"
+            android:paddingTop="@dimen/activity_top_padding" >
+
+            <TextView
+                android:id="@+id/yzm"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="right"
+                android:text="验证码"
+                 android:textSize="15sp"
+                android:textColor="@color/darkgrey" />
+
+            <EditText
+                android:id="@+id/yzmet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:minHeight="@dimen/yhk_minheight"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/et_border"
+                android:padding="5dp"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                android:textSize="14sp"
+                android:textColorHint="#c5c5c5" />
+
+            <Button
+                android:id="@+id/yzmbtn"
+                style="@style/app_medium_textStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/app_btnyzmselector"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:paddingLeft="@dimen/text_left_padding"
+                android:paddingRight="@dimen/text_right_padding"
+                android:text="@string/welcome_hyyzm"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:minHeight="@dimen/ll_minheight"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/activity_bottom_padding"
+            android:paddingTop="@dimen/activity_top_padding" >
+
+            <TextView
+                android:id="@+id/srmm"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="right"
+                android:text="输入密码"
+                android:textSize="15sp"
+                android:textColor="@color/darkgrey" />
+
+            <EditText
+                android:id="@+id/mmet"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/et_border"
+                android:hint="请输入6-15位数字加字母组合密码"
+                android:inputType="textPassword"
+                android:minHeight="@dimen/yhk_minheight"
+                android:padding="5dp"
+                android:textSize="14sp"
+                android:textColorHint="#c5c5c5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:minHeight="@dimen/ll_minheight"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/activity_bottom_padding"
+            android:paddingTop="@dimen/activity_top_padding" >
+
+            <TextView
+                android:id="@+id/qrmm"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="right"
+                android:text="确认密码"
+                 android:textSize="15sp"
+                android:textColor="@color/darkgrey" />
+
+            <EditText
+                android:id="@+id/qrmmet"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/et_border"
+                android:padding="5dp"
+                android:hint=""
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                android:minHeight="@dimen/yhk_minheight"
+                android:textColorHint="#c5c5c5" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <TextView
+            style="@style/app_medium_textStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="小提示：为了帐号安全，不要将密码设置过于简单哦！如：123456、111111"
+            android:textColor="@color/gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_bottom_padding"
+        android:paddingTop="@dimen/activity_top_padding" >
+
+        <CheckBox
+            android:id="@+id/agree"
+            style="@style/app_medium_textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我已阅读并同意"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/agreement"
+            style="@style/app_medium_textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="《用户使用协议》"
+            android:textColor="@color/blue_light" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/registerbtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/app_btnselector"
+        android:gravity="center"
+        android:minHeight="@dimen/btn_minheight"
+        android:text="@string/welcome_zcxyh"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:enabled="false"/>
+
+</LinearLayout>

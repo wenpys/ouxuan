@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <deling.cellcom.com.cn.widget.Header
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_head_height"
+        android:background="@color/gray_white" />
+    <RelativeLayout
+        android:background="@color/gray_white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" />
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:id="@+id/iv_drawable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+        	android:src="@anim/progress_round" 
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/myl_bg"
+        android:divider="@drawable/abs__list_divider_holo_light"
+        android:listSelector="@drawable/abs__list_selector_holo_light"
+        android:scrollbars="none" >
+    </ListView>
+
+</LinearLayout>

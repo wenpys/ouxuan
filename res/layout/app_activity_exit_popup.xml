@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_dialog_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#50000000"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/app_item_bg"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/app_big_textStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/activity_bottom_padding"
+            android:paddingTop="@dimen/activity_top_padding"
+            android:text="@string/main_xxtz" />
+
+        <TextView
+            style="@style/app_medium_textStyle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingBottom="@dimen/activity_bottom_padding"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="@dimen/activity_top_padding"
+            android:text="@string/main_ndsj" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@color/line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/exitbtn"
+                style="@style/app_medium_textStyle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ffffffff"
+                android:gravity="center"
+                android:text="@string/main_tc"
+                android:textColor="@color/app_btnchange_selector" />
+
+            <ImageView
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@color/line_color" />
+
+            <Button
+                android:id="@+id/reloginbtn"
+                style="@style/app_medium_textStyle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ffffffff"
+                android:gravity="center"
+                android:text="@string/main_qxdl"
+                android:textColor="@color/app_btnchange_selector" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

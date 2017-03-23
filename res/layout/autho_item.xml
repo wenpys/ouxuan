@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/umeng_socialize_shareboard_item_background"
+	android:descendantFocusability="blocksDescendants">
+
+    <LinearLayout 
+        android:id="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+       	android:layout_marginLeft="15dp"
+       	android:layout_marginRight="15dp">
+	
+	    <ImageView
+	        android:layout_width="12dp"
+	        android:layout_height="12dp"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/sqdh"
+		    android:layout_gravity="center_vertical" />
+	    
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:text="授权号码："
+		    android:singleLine="true"
+		    android:textColor="@color/gray"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+		
+		<TextView 
+		    android:id="@+id/phone"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="2dp"
+		    android:layout_marginRight="2dp"
+		    android:text="12345678910"
+		    android:singleLine="true"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+        
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/first"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp" >
+	
+	    <ImageView
+	        android:layout_width="12dp"
+	        android:layout_height="12dp"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/sqxq"
+		    android:layout_gravity="center_vertical" />
+	    
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:text="授权钥匙："
+		    android:singleLine="true"
+		    android:textColor="@color/gray"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+		
+		<TextView 
+		    android:id="@+id/key"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="2dp"
+		    android:layout_marginRight="2dp"
+		    android:text="C栋211"
+		    android:singleLine="true"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+        
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/second"
+        android:layout_marginTop="10dp"
+       	android:layout_marginLeft="15dp"
+       	android:layout_marginRight="15dp">
+	
+	    <ImageView
+	        android:layout_width="12dp"
+	        android:layout_height="12dp"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/sqqx"
+		    android:layout_gravity="center_vertical" />
+	    
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:text="钥匙期限："
+		    android:singleLine="true"
+		    android:textColor="@color/gray"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+		
+		<TextView 
+		    android:id="@+id/expiry"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="2dp"
+		    android:layout_marginRight="2dp"
+		    android:text="1900-11-01"
+		    android:singleLine="true"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>        
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/fourth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/third"
+        android:layout_marginTop="10dp"
+       	android:layout_marginLeft="15dp"
+       	android:layout_marginRight="15dp">
+	
+	    <ImageView
+	        android:layout_width="12dp"
+	        android:layout_height="12dp"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/sqsj"
+		    android:layout_gravity="center_vertical" />
+	    
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="5dp"
+		    android:text="授权时间："
+		    android:singleLine="true"
+		    android:textColor="@color/gray"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>
+		
+		<TextView 
+		    android:id="@+id/date"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="2dp"
+		    android:layout_marginRight="2dp"
+		    android:text="1900-01-01 12:00:00"
+		    android:singleLine="true"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>        
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/fifth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fourth"
+        android:layout_marginTop="10dp"
+       	android:layout_marginLeft="15dp"
+       	android:layout_marginRight="15dp"
+       	android:layout_marginBottom="10dp">
+	
+	    <ImageView
+	        android:layout_width="12dp"
+	        android:layout_height="12dp"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/sqzt"
+		    android:layout_gravity="center_vertical" />
+
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:gravity="center"
+	        android:singleLine="true"
+	        android:text="状　　态："
+	        android:textColor="@color/gray"
+	        android:textSize="12sp" />
+		
+		<TextView 
+		    android:id="@+id/state"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="2dp"
+		    android:layout_marginRight="2dp"
+		    android:text="已授权"
+		    android:singleLine="true"
+		    android:textSize="12sp"
+		    android:gravity="center"
+		    android:layout_gravity="center_vertical"/>        
+    </LinearLayout>
+
+</RelativeLayout>

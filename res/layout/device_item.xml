@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/deviceNameTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/darkgrey"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/deviceMacTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/darkgrey"
+        android:textSize="18sp" />
+
+</LinearLayout>

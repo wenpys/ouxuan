@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:id="@+id/ad_layout" 
+	android:layout_width="280dp" 
+	android:layout_height="wrap_content" 
+	android:gravity="center_horizontal" 
+    android:layout_marginTop="100dp"
+    android:layout_marginBottom="100dp"  > 	
+	
+    <ScrollView         
+		android:layout_width="match_parent" 
+		android:layout_height="match_parent"
+		android:fillViewport="true"
+		android:visibility="gone">
+        
+        <ImageView
+            android:id="@+id/ad_image"
+			android:layout_width="match_parent" 
+			android:layout_height="wrap_content"/>
+        
+    </ScrollView>
+    <RelativeLayout
+        android:background="@color/gray_white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <WebView
+            android:id="@+id/ad_webview"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" />
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:id="@+id/iv_drawable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+        	android:src="@anim/progress_round" 
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout> 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_head_height">45dp</dimen>
+    <dimen name="activity_left_margin">10dp</dimen>
+    <dimen name="activity_right_margin">10dp</dimen>
+    <dimen name="activity_top_margin">10dp</dimen>
+    <dimen name="activity_bottom_margin">10dp</dimen>
+    <dimen name="activity_left_padding">10dp</dimen>
+    <dimen name="activity_right_padding">10dp</dimen>
+    <dimen name="activity_top_padding">5dp</dimen>
+    <dimen name="activity_bottom_padding">5dp</dimen>
+    <dimen name="text_margin_10">10dp</dimen>
+    <dimen name="text_margin_15">15dp</dimen>
+    <dimen name="text_margin_20">20dp</dimen>
+    <dimen name="text_margin_40">40dp</dimen>
+    <dimen name="drawable_padding">5dp</dimen>
+    <dimen name="login_drawable_padding">10dp</dimen>
+    <dimen name="text_left_padding">5dp</dimen>
+    <dimen name="text_right_padding">5dp</dimen>
+    <dimen name="text_minwidth">80dp</dimen>
+    <dimen name="btn_minheight">45dp</dimen>
+    <dimen name="btn_minwidth">200dp</dimen>
+    <dimen name="tab_navheight">50dp</dimen>
+    <dimen name="tab_navbotheight">60dp</dimen>
+    <dimen name="ll_minheight">45dp</dimen>
+    <dimen name="yhk_minheight">25dp</dimen>
+    <dimen name="ll_minheight_40">40dp</dimen>
+    <dimen name="caldroid_minheight">400dp</dimen>
+    <dimen name="textsize_14sp">14sp</dimen>
+    <dimen name="textsize_16sp">16sp</dimen>
+    <dimen name="index_bar_view_text_size">12sp</dimen>
+    <dimen name="index_bar_view_width">20dp</dimen>
+    <dimen name="index_bar_view_margin">10dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+        <!-- 顶部按钮栏高度 -->
+    <dimen name="pickerview_topbar_height">44dp</dimen>
+    <!-- 顶部按钮paddingLeft -->
+    <dimen name="pickerview_topbar_paddingleft">10dp</dimen>
+    <!-- 顶部按钮paddingRight -->
+    <dimen name="pickerview_topbar_paddingright">30dp</dimen>
+    <!-- 顶部按钮文字大小 -->
+    <dimen name="pickerview_topbar_btn_textsize">20sp</dimen>
+    <dimen name="pickerview_topbar_title_textsize">21sp</dimen>
+
+</resources>

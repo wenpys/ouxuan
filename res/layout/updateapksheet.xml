@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_item_bg"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_bottom_margin"
+        android:layout_marginLeft="@dimen/activity_left_margin"
+        android:layout_marginRight="@dimen/activity_right_margin"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/zxbbtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/gxbb" />
+
+        <TextView
+            android:id="@+id/zxbbsjtv"
+            style="@style/app_small_textStyle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/gxbb" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@color/line_color" />
+
+    <TextView
+        android:id="@+id/zxbbmstv"
+        style="@style/app_medium_textStyle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_bottom_margin"
+        android:layout_marginLeft="@dimen/activity_left_margin"
+        android:layout_marginRight="@dimen/activity_right_margin"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        android:gravity="center_vertical"
+        android:lineSpacingMultiplier="1.2"
+        android:text="@string/gxbb" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/text_margin_20"
+        android:layout_marginLeft="@dimen/activity_left_margin"
+        android:layout_marginRight="@dimen/activity_right_margin"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/ljgxtv"
+            style="@style/app_textStyle5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_right_margin"
+            android:layout_weight="1"
+            android:background="@drawable/app_btnselector"
+            android:gravity="center"
+            android:text="@string/ljgx" />
+
+        <TextView
+            android:id="@+id/zwgxtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_left_margin"
+            android:layout_weight="1"
+            android:background="@drawable/app_btn1selector"
+            android:gravity="center"
+            android:text="@string/zwgx" />
+    </LinearLayout>
+
+</LinearLayout>

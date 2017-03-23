@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/app_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <deling.cellcom.com.cn.widget.Header
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_head_height"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/less_flow_mode_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        android:background="@drawable/app_lineitemselector"
+        android:minHeight="@dimen/ll_minheight"
+        android:paddingLeft="@dimen/activity_left_padding"
+        android:paddingRight="@dimen/activity_right_padding"
+        android:visibility="gone" >
+
+        <TextView
+            style="@style/app_textStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="自动开门" />
+
+        <CheckBox
+            android:id="@+id/ck_auto_open"
+            style="@style/toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@color/line_color"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/notify_toggle_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_lineitemselector"
+        android:minHeight="@dimen/ll_minheight"
+        android:paddingLeft="@dimen/activity_left_padding"
+        android:paddingRight="@dimen/activity_right_padding"
+        android:visibility="gone" >
+
+        <TextView
+            style="@style/app_textStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="摇一摇开门"
+            tools:ignore="HardcodedText" />
+
+        <CheckBox
+            android:id="@+id/ck_shark_open"
+            style="@style/toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@color/line_color" />
+    
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/app_lineitemselector"
+	    android:minHeight="@dimen/ll_minheight"
+	    android:paddingLeft="@dimen/activity_left_padding"
+	    android:paddingRight="@dimen/activity_right_padding"
+	    android:visibility="gone" >
+
+	    <TextView
+	        android:id="@+id/lmd"
+	        style="@style/app_textStyle2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:text="摇一摇灵敏度"
+	        tools:ignore="HardcodedText" />
+
+	    <SeekBar
+	        android:id="@+id/sensitivity"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dp"
+	        android:layout_centerVertical="true"
+	        android:layout_toRightOf="@+id/lmd"
+	        android:layout_toLeftOf="@+id/tv_sensitivity" />
+	      
+	    <TextView
+	        android:id="@+id/tv_sensitivity"
+	        style="@style/app_textStyle2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="10dp"
+	        android:text="0"/>
+	    
+	</RelativeLayout>
+	
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@color/line_color" />
+    
+    <RelativeLayout
+        android:id="@+id/personal_setting_changepwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_lineitemselector"
+        android:minHeight="@dimen/ll_minheight"
+        android:paddingLeft="@dimen/activity_left_padding"
+        android:paddingRight="@dimen/activity_right_padding">
+
+        <TextView
+            style="@style/app_textStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="修改密码" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@drawable/app_list_right_arrow" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@color/line_color" />
+    
+    <RelativeLayout
+        android:id="@+id/personal_setting_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_lineitemselector"
+        android:minHeight="@dimen/ll_minheight"
+        android:paddingLeft="@dimen/activity_left_padding"
+        android:paddingRight="@dimen/activity_right_padding" >
+
+        <TextView
+            style="@style/app_textStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="关于我们" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@drawable/app_list_right_arrow" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@color/line_color" />
+    
+    <RelativeLayout
+        android:id="@+id/personal_check_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_lineitemselector"
+        android:minHeight="@dimen/ll_minheight"
+        android:paddingLeft="@dimen/activity_left_padding"
+        android:paddingRight="@dimen/activity_right_padding" >
+
+        <TextView
+            style="@style/app_textStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="检查更新" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@drawable/app_list_right_arrow" />
+    </RelativeLayout>
+    
+    <Button
+        android:id="@+id/registerbtn"
+        style="@style/app_textStyle5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_left_margin"
+        android:background="@drawable/app_btnselector"
+        android:gravity="center"
+        android:minHeight="@dimen/btn_minheight"
+        android:text="@string/logout" />
+
+</LinearLayout>

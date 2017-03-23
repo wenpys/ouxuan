@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="deling.cellcom.com.cn.activity.main.LaunchActivity" >
+
+    <ImageView
+        android:background="@drawable/icon_bg_launch3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside" />
+	
+    <LinearLayout
+        android:id="@+id/ll_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/mid"
+        android:orientation="vertical"
+        >
+	        
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        />
+	    
+	    <ImageView
+	        android:src="@drawable/logo"
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        android:layout_gravity="center_horizontal"
+	        android:scaleType="centerInside"
+	        android:layout_above="@+id/mid"/>        
+	    
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/mid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"  
+        />
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_dialog_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_dialog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/app_lineitem_bg"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_left_margin"
+            android:layout_marginRight="@dimen/activity_right_margin"
+            android:layout_marginTop="@dimen/activity_top_margin"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            tools:ignore="InefficientWeight" >
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/btn_ok"
+                style="@style/app_textStyle6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/app_alertdialog_selector"
+                android:gravity="center"
+                android:minHeight="@dimen/btn_minheight"
+                android:minWidth="@dimen/btn_minwidth"
+                android:text="@string/app_btnyes" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                style="@style/app_textStyle6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/app_alertdialog_selector"
+                android:gravity="center"
+                android:minHeight="@dimen/btn_minheight"
+                android:minWidth="@dimen/btn_minwidth"
+                android:text="@string/app_btnno" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/umeng_socialize_shareboard_item_background"
+	android:descendantFocusability="blocksDescendants">
+
+    <deling.cellcom.com.cn.widget.Header
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_head_height"
+        android:orientation="vertical" />
+    
+
+		<TextView 
+		    android:id="@+id/tv_agreement"
+		    android:layout_width="match_parent"
+        	android:layout_height="wrap_content" 
+        	android:layout_below="@+id/header"
+		    android:layout_marginLeft="2dp"
+		    android:layout_marginRight="2dp"
+		    android:maxLines="100"
+		    android:text=""
+		    android:singleLine="false"
+		    android:scrollbars="vertical"
+		    android:scrollbarStyle="outsideOverlay"
+		    android:scrollbarFadeDuration="2000"
+		    android:textSize="14sp"
+		    android:layout_gravity="center_vertical"/>
+
+</RelativeLayout>

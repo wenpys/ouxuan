@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_default"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/app_bg" >
+
+   <RelativeLayout
+       android:id="@+id/rl_main"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent" >
+	      
+       <RelativeLayout       
+	        android:id="@+id/main_worn"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent">  	
+        	
+            <ImageView
+               android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/mid"
+                android:src="@drawable/notice"
+                android:paddingBottom="2dip"
+                android:paddingTop="7dip"
+                android:scaleType="centerInside"
+                android:textSize="12sp" />
+            
+            <TextView 
+                android:id="@+id/mid"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true" />
+            
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image"
+                android:text="咦？还没有收到小区通知哦！"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:textSize="18sp"
+                />
+        	
+        </RelativeLayout>
+   </RelativeLayout>
+
+</RelativeLayout>

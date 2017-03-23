@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:background="@drawable/main_bg_mid"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.ab.view.pullview.AbPullToRefreshView
+        android:id="@+id/mPullRefreshView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true" >
+
+            <RelativeLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RelativeLayout
+                    android:id="@+id/main_yao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+                    <deling.cellcom.com.cn.widget.HorizontalListView
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/lv_horiz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true" />
+
+                    
+                    <ImageView
+                        android:id="@+id/cc"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/main_ct_circle"
+                        android:textSize="12sp" />
+                    
+                    <ImageView
+                        android:id="@+id/shark"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dip"
+                        android:paddingTop="7dip"
+                        android:scaleType="centerInside"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/shark1"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/mid"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_haskey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/cc"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp" 
+                        android:orientation="vertical"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/shark"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_horizontal"
+                            android:text="摇一摇或点我就可以开门咯！"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_nokey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/cc"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/apkey"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="马上申请钥匙，"
+                            android:textColor="@color/blue_light"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tv_key_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center_horizontal"
+                            android:text="就可以摇一摇开门咯！"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_fbkey"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@+id/shark"
+                        android:gravity="center"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="您的钥匙状态不可用哦，点击"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/rvkey"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/mykey" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="恢复钥匙使用！"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_noblue"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_above="@+id/cc"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="亲，"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />                        
+                        
+                        <TextView
+                            android:id="@+id/openblue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="打开蓝牙"
+                            android:textColor="@color/blue_light"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center_horizontal"
+                            android:text="，才能摇一摇开门哦！"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_notfound"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_above="@+id/cc"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="亲，您离我太远了，请不要离我超过3米！"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />  
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </com.ab.view.pullview.AbPullToRefreshView>
+
+</RelativeLayout>
