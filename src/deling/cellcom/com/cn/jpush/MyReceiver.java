@@ -6,6 +6,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.content.BroadcastReceiver;
@@ -70,6 +71,7 @@ public class MyReceiver extends BroadcastReceiver {
 	}
 
 	// 打印所有的 intent extra 数据
+	@SuppressLint("NewApi")
 	private static String printBundle(Bundle bundle) {
 		StringBuilder sb = new StringBuilder();
 		for (String key : bundle.keySet()) {
@@ -123,10 +125,10 @@ public class MyReceiver extends BroadcastReceiver {
 		if(isAppRuning(context, "cellcom.com.cn.deling")){
 			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
 			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-			Intent msgIntent = new Intent(MainActivity.MESSAGE_RECEIVED_ACTION);
-			msgIntent.putExtra(MainActivity.KEY_MESSAGE, message);
-			msgIntent.putExtra("from", "notice");
-			context.sendBroadcast(msgIntent);
+//			Intent msgIntent = new Intent(MainActivity.MESSAGE_RECEIVED_ACTION);
+//			msgIntent.putExtra(MainActivity.KEY_MESSAGE, message);
+//			msgIntent.putExtra("from", "notice");
+//			context.sendBroadcast(msgIntent);
 		}
 	}
 }

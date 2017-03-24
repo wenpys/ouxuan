@@ -207,52 +207,6 @@ public class MainFragment extends FragmentBase implements OnHeaderRefreshListene
 			@Override
 			public void onClick(View arg0) {
 				Log.e("isBlueOn","isBlueOn="+isBlueOn);
-				if(isBlueOn){//isBlueOn){
-					showAnimation();
-					if(MyApplication.getInstances().getKeyNum() == 0){
-						ShowMsg("亲，您还没申请钥匙，快快申请吧！");
-					}else{
-						showAnimation();
-						((MainActivity)activity).ManOpendoor(2);
-					}
-				}else{
-					if(((MainActivity)activity).turnOnBluetooth()){
-						activity.runOnUiThread(new Runnable() {
-							
-							@Override
-							public void run() {
-								new Handler().postDelayed(new Runnable(){    
-								    public void run() {  
-										showAnimation();
-										((MainActivity)activity).ManOpendoor(2); 
-								    }    
-								 }, 2000); 
-							}
-						});
-					}else{
-						myDialog = new AlertDialog.Builder(activity).create();
-						myDialog.show();
-						myDialog.getWindow().setContentView(R.layout.app_alertdialog_popup);
-						TextView tvContent =  (TextView) myDialog.getWindow().findViewById(R.id.tv_content);
-						Button btSetting =  (Button) myDialog.getWindow().findViewById(R.id.btn_ok);
-						Button btCancel =  (Button) myDialog.getWindow().findViewById(R.id.btn_cancel);
-						tvContent.setText("主人，蓝牙未打开哦，马上打开蓝牙才能摇一摇开门哦！");
-						btSetting.setText("设置");
-						btCancel.setText("好");
-						btSetting.setOnClickListener(new View.OnClickListener() {  
-			                 @Override  
-			                 public void onClick(View v) {  
-			                	 startActivity(new Intent(Settings.ACTION_BLUETOOTH_SETTINGS));
-			                 }  
-			            });   
-						btCancel.setOnClickListener(new View.OnClickListener() {  
-			                 @Override  
-			                 public void onClick(View v) {  
-			                     myDialog.dismiss();  
-			                 }  
-			            });  
-					}
-				}
 			}
 		});
 		tvOpenBlue.setOnClickListener(new View.OnClickListener() {
@@ -267,8 +221,6 @@ public class MainFragment extends FragmentBase implements OnHeaderRefreshListene
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				((MainActivity)activity).openDoorByKeyinfo(horizAdapter.getItem(position),2);
-				startAnim(view);
 			}
 		});
 	}

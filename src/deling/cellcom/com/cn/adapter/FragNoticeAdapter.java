@@ -35,11 +35,9 @@ public class FragNoticeAdapter extends BaseAdapter {
 			noticeIds=noticeIds+","+notices.get(position).getId();
 			notifyDataSetChanged();
 			//更新服务器上的读过的消息ids
-			((MainActivity)activity).getNoticeFrag().updateNoticeIds(noticeIds);
 		}
 		notices.get(position).setRead(true);
 		BaseDataManager.getInstance(activity).updateAreaNotice(notices.get(position));
-		((MainActivity)activity).getNoticeFrag().setNoticeNum(BaseDataManager.getInstance(activity).getAreaNoticeNum());
 	}
 	public void addAllData(List<AreaNotice> notices){
 		this.notices=notices;

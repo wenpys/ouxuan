@@ -40,7 +40,7 @@
             android:paddingTop="2dp" >      
 
             <RadioButton
-                android:id="@+id/tab_rb_e"
+                android:id="@+id/tab_rb_a"
                 style="@style/app_small_textStyle5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:text="@string/main_center" />   
 
             <RadioButton
-                android:id="@+id/tab_rb_a"
+                android:id="@+id/tab_rb_b"
                 style="@style/app_small_textStyle5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                 android:text="@string/main_sale" />             
 
             <RadioButton
-                android:id="@+id/tab_rb_f"
+                android:id="@+id/tab_rb_d"
                 style="@style/app_small_textStyle5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

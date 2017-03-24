@@ -98,7 +98,6 @@ public class NoticeFragment extends FragmentBase implements
 	}
 
 	public void setNoticeNum(int count) {
-		((MainActivity) activity).setNoticeMsg(count);
 	}
 
 	private void initData() {

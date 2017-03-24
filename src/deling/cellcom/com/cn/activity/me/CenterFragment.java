@@ -293,7 +293,6 @@ public class CenterFragment extends FragmentBase implements OnClickListener {
 						startActivity(mIntent);
 						MyApplication.getInstances().getActivities().clear();
 						MobclickAgent.onProfileSignOff();
-						((MainActivity)activity).turnOffBluetooth();
 						activity.finish();
 					}
 				})

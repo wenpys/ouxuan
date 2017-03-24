@@ -117,7 +117,7 @@ public class LoginActivity extends FragmentActivityBase {
 		String userid = cellcom.com.cn.util.SharepreferenceUtil.getDate(LoginActivity.this, "userid");
 		isRememb = PreferencesUtils.getBoolean(LoginActivity.this, "isrememb");
 		String phone = PreferencesUtils.getString(LoginActivity.this, "phone" , "");
-		etPhone.setText(phone);
+//		etPhone.setText(phone);
 //		if(isRememb){
 //			cbRememb.setChecked(true);
 //			String phone = PreferencesUtils.getString(LoginActivity.this, "phone" , "");
