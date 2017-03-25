@@ -108,8 +108,10 @@ import deling.cellcom.com.cn.activity.WebViewActivity;
 import deling.cellcom.com.cn.activity.base.FragmentActivityBase;
 import deling.cellcom.com.cn.activity.base.FragmentBase;
 import deling.cellcom.com.cn.activity.me.AskKeyActivity;
+import deling.cellcom.com.cn.activity.me.CenterFragment;
 import deling.cellcom.com.cn.activity.me.PersonFm;
 import deling.cellcom.com.cn.activity.welcome.LoginActivity;
+import deling.cellcom.com.cn.activity.zxing.activity.CaptureActivity;
 import deling.cellcom.com.cn.bean.Adver;
 import deling.cellcom.com.cn.bean.AdverComm;
 import deling.cellcom.com.cn.bean.Comm;
@@ -180,7 +182,8 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	private List<String> mIndexADLink = new ArrayList<String>();
 	private String[] cacheIndexADImg;
 	private String[] cacheIndexADLink;
-	
+
+	private CenterFragment centerFm;	//接待中心
 	private NoticeFragment noticeFragment;// 通知
 	private MainFragment mainFragment;// 主页
 	private PersonFm personFm;	//我的
@@ -206,7 +209,7 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	private CustomProgressDialog m_ProgressDialog;
 	private String path;
 	private FinalBitmap finalBitmap;
-	private int curFrm = 1;
+	private int curFrm = 0;
 //	private boolean isOpening = false;
     private PowerManager pm;  
     private PowerManager.WakeLock wakeLock;
@@ -291,7 +294,7 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 		initListener();
 		initData();
 //		addLBT();
-		tabRbPerson.setChecked(true);
+		tabRbCenter.setChecked(true);
 	}
 	
 	private void alertAD(){
@@ -338,9 +341,11 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 		
 		getDrawable();
 
+		centerFm = new CenterFragment();
 		personFm = new PersonFm();
 		noticeFragment = new NoticeFragment();
 		mainFragment = new MainFragment();
+		fragments.add(centerFm);
 		fragments.add(noticeFragment);
 		fragments.add(mainFragment);
 		fragments.add(personFm);
@@ -362,17 +367,22 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 					isMain=false;
 					header.setVisibility(View.VISIBLE);
 					vpContent.setCurrentItem(0, false);
-					header.setTitle(
-							getResources().getString(R.string.main_msg), null);
-					
-					setTabUI(0);
-					tabRbCenter.setChecked(false);
-					
+					header.setTitle(getResources().getString(R.string.main_center), null);
+					header.setLeftImageVewRes(R.drawable.scan, new View.OnClickListener() {
+						
+						@Override
+						public void onClick(View arg0) {
+							OpenActivity(CaptureActivity.class);
+						}
+					});
+					setTabUI(0);					
 					break;
 				case R.id.tab_rb_b:// 内容展示
 					isMain=true;
 					header.setVisibility(View.VISIBLE);
 					vpContent.setCurrentItem(1, false);
+					header.setTitle(getResources().getString(R.string.main_show), null);
+					
 					setTabUI(1);
 					break;
 				case R.id.tab_rb_c:// 互动营销
@@ -380,20 +390,16 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 //					mSlidingPlayView.setVisibility(View.GONE);
 					header.setVisibility(View.GONE);
 					vpContent.setCurrentItem(2, false);
-					header.setTitle(getResources().getString(R.string.main_gr),
-							null);
+					header.setTitle(getResources().getString(R.string.main_sale), null);
 					setTabUI(2);
-					tabRbCenter.setChecked(false);
 					break;
 				case R.id.tab_rb_d:// 我的信息
 					isMain=false;
 //					mSlidingPlayView.setVisibility(View.GONE);
 					header.setVisibility(View.GONE);
-					vpContent.setCurrentItem(2, false);
-					header.setTitle(getResources().getString(R.string.main_gr),
-							null);
+					vpContent.setCurrentItem(3, false);
+					header.setTitle(getResources().getString(R.string.main_person), null);
 					setTabUI(3);
-					tabRbCenter.setChecked(false);
 					break;
 
 				default:
@@ -417,12 +423,12 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 		centerOff.setBounds(0, 0, centerOff.getMinimumWidth(),
 				centerOff.getMinimumHeight());
 
-		showOn = getResources().getDrawable(R.drawable.key2);
+		showOn = getResources().getDrawable(R.drawable.ren2);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		showOn.setBounds(0, 0, 		showOn.getMinimumWidth(),
 				showOn.getMinimumHeight());
 
-		showOff = getResources().getDrawable(R.drawable.key);
+		showOff = getResources().getDrawable(R.drawable.ren);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		showOff.setBounds(0, 0, showOff.getMinimumWidth(),
 				showOff.getMinimumHeight());

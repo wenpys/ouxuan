@@ -5,14 +5,13 @@
     android:versionName="1.7" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
     <permission
         android:name="cellcom.com.cn.deling.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -388,6 +387,7 @@
             android:launchMode="singleInstance"
             android:theme="@style/LiveActivityStyle">
         </activity>
+        <activity android:name="deling.cellcom.com.cn.activity.main.CallActivity"></activity>
     </application>
 	<!-- 硬件SDK支持 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />

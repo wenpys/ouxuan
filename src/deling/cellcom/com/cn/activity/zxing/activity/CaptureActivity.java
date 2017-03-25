@@ -21,6 +21,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+import android.widget.Toast;
 import cellcom.com.cn.deling.R;
 
 import com.google.zxing.BarcodeFormat;
@@ -33,6 +34,7 @@ import deling.cellcom.com.cn.activity.zxing.camara.CameraManager;
 import deling.cellcom.com.cn.activity.zxing.decoding.CaptureActivityHandler;
 import deling.cellcom.com.cn.activity.zxing.decoding.InactivityTimer;
 import deling.cellcom.com.cn.activity.zxing.view.ViewfinderView;
+import deling.cellcom.com.cn.utils.ToastUtils;
 import deling.cellcom.com.cn.widget.ActionSheet.OnActionSheetSelected;
 import deling.cellcom.com.cn.widget.Header;
 
@@ -220,9 +222,10 @@ public class CaptureActivity extends FragmentActivityBase implements Callback,
 		if (!obj.getText().toString().equals("")) {
 			//TODO 获取二维码的数据
 			String data=obj.getText().toString();
-			Intent intent=new Intent(CaptureActivity.this,AskKeyByScanActivity.class);
-			intent.putExtra("data", data);
-			startActivity(intent);
+//			Intent intent=new Intent(CaptureActivity.this,AskKeyByScanActivity.class);
+//			intent.putExtra("data", data);
+//			startActivity(intent);
+			ToastUtils.show(this, data);
 			CaptureActivity.this.finish();
 		}
 	}
