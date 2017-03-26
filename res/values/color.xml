@@ -8,11 +8,12 @@
     <color name="line_color">#E4E2E2</color>
     <color name="green">#3BA831</color>
     <color name="blue">#0000ff</color>
+    <color name="darkblue">#228af2</color>
     <color name="grey">#ECECEC</color>
     <color name="wallet">#EBEBEB</color>
     <color name="lightgrey">#EEEFEE</color>
     <color name="blackgrey">#303030</color>
-    <color name="darkgrey">#8C8C8C</color>
+    <color name="darkgrey">#666666</color>
     <color name="red">#E00909</color>
     <color name="male">#ff3EB134</color>
     <color name="female">#ffEC5885</color>

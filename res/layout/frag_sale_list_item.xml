@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/app_bg"
+    android:padding="5dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <LinearLayout 
+        android:id="@+id/ll_main"
+	    android:layout_width="match_parent"
+	    android:layout_height="150dp"
+	    android:orientation="vertical"
+	    android:padding="10dp"
+	    android:background="@drawable/shape_corner_gray">
+        
+	    <LinearLayout 
+	        android:id="@+id/ll_title"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content">
+
+	        <ImageView
+	            android:id="@+id/icon"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:src="@drawable/main_foundclick" />
+		    
+		    <TextView
+		        android:id="@+id/title"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerVertical="true"
+			    android:textAppearance="?android:attr/textAppearanceMedium"
+		        android:layout_marginLeft="5dp"
+		        android:text="预定送礼" />
+  
+        </LinearLayout>
+
+	    <ImageView
+	        android:id="@+id/image"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:src="@drawable/coupon_defaut"
+	        android:scaleType="fitXY"
+	        android:layout_marginTop="5dp" />
+        
+    </LinearLayout>    
+</RelativeLayout>

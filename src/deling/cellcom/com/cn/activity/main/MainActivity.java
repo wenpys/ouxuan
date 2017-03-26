@@ -171,8 +171,7 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	private RelativeLayout rlMain;
 	public List<FragmentBase> fragments = new ArrayList<FragmentBase>();
 
-	private Header header;// 标题
-	private long mExitTime;// 退出时间
+	private long mExitTime = 0;// 退出时间
 	private long mClickTime;//点击开门时间
 
 	private TextView tvMsg;// 消息文本
@@ -184,6 +183,8 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	private String[] cacheIndexADLink;
 
 	private CenterFragment centerFm;	//接待中心
+	private ShowFragment showFm;	//车型展示
+	private SaleFragment saleFm;	//互动营销
 	private NoticeFragment noticeFragment;// 通知
 	private MainFragment mainFragment;// 主页
 	private PersonFm personFm;	//我的
@@ -312,7 +313,6 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	
 	private void initView() {
 		rlMain = (RelativeLayout) findViewById(R.id.rl_main);
-		header = (Header) findViewById(R.id.header);
 		rgs = (RadioGroup) findViewById(R.id.tabs_rg);
 		tabRbCenter = (RadioButton) findViewById(R.id.tab_rb_a);
 		tabRbShow = (RadioButton) findViewById(R.id.tab_rb_b);
@@ -336,18 +336,17 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 		userid = cellcom.com.cn.util.SharepreferenceUtil.getDate(
 				MainActivity.this, "userid");
 		
-		header.setBackgroundResource(R.drawable.main_bg_top);
-		header.setTitle(getResources().getString(R.string.app_name));
-		
 		getDrawable();
 
 		centerFm = new CenterFragment();
+		showFm = new ShowFragment();
+		saleFm = new SaleFragment();
 		personFm = new PersonFm();
 		noticeFragment = new NoticeFragment();
 		mainFragment = new MainFragment();
 		fragments.add(centerFm);
-		fragments.add(noticeFragment);
-		fragments.add(mainFragment);
+		fragments.add(showFm);
+		fragments.add(saleFm);
 		fragments.add(personFm);
 		
 		vpContent.setAdapter(new deling.cellcom.com.cn.adapter.MainAdapter(getSupportFragmentManager(),
@@ -365,40 +364,26 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 				switch (checkedId) {
 				case R.id.tab_rb_a:// 接待中心
 					isMain=false;
-					header.setVisibility(View.VISIBLE);
 					vpContent.setCurrentItem(0, false);
-					header.setTitle(getResources().getString(R.string.main_center), null);
-					header.setLeftImageVewRes(R.drawable.scan, new View.OnClickListener() {
-						
-						@Override
-						public void onClick(View arg0) {
-							OpenActivity(CaptureActivity.class);
-						}
-					});
+					
 					setTabUI(0);					
 					break;
 				case R.id.tab_rb_b:// 内容展示
 					isMain=true;
-					header.setVisibility(View.VISIBLE);
 					vpContent.setCurrentItem(1, false);
-					header.setTitle(getResources().getString(R.string.main_show), null);
 					
 					setTabUI(1);
 					break;
 				case R.id.tab_rb_c:// 互动营销
 					isMain=false;
 //					mSlidingPlayView.setVisibility(View.GONE);
-					header.setVisibility(View.GONE);
 					vpContent.setCurrentItem(2, false);
-					header.setTitle(getResources().getString(R.string.main_sale), null);
 					setTabUI(2);
 					break;
 				case R.id.tab_rb_d:// 我的信息
 					isMain=false;
 //					mSlidingPlayView.setVisibility(View.GONE);
-					header.setVisibility(View.GONE);
 					vpContent.setCurrentItem(3, false);
-					header.setTitle(getResources().getString(R.string.main_person), null);
 					setTabUI(3);
 					break;
 
@@ -414,41 +399,41 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	 * 初始化图片资源
 	 */
 	private void getDrawable() {
-		centerOn = getResources().getDrawable(R.drawable.bugle2);
+		centerOn = getResources().getDrawable(R.drawable.tab_ic_jiedai_pre);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		centerOn.setBounds(0, 0, centerOn.getMinimumWidth(), centerOn.getMinimumHeight());
 
-		centerOff = getResources().getDrawable(R.drawable.bugle);
+		centerOff = getResources().getDrawable(R.drawable.tab_ic_jiedai_def);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		centerOff.setBounds(0, 0, centerOff.getMinimumWidth(),
 				centerOff.getMinimumHeight());
 
-		showOn = getResources().getDrawable(R.drawable.ren2);
+		showOn = getResources().getDrawable(R.drawable.tab_ic_hudong_pre);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		showOn.setBounds(0, 0, 		showOn.getMinimumWidth(),
 				showOn.getMinimumHeight());
 
-		showOff = getResources().getDrawable(R.drawable.ren);
+		showOff = getResources().getDrawable(R.drawable.tab_ic_hudong_def);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		showOff.setBounds(0, 0, showOff.getMinimumWidth(),
 				showOff.getMinimumHeight());
 
-		saleOn = getResources().getDrawable(R.drawable.opendoor2);
+		saleOn = getResources().getDrawable(R.drawable.tab_ic_car_pre);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		saleOn.setBounds(0, 0, saleOn.getMinimumWidth(),
 				saleOn.getMinimumHeight());
 
-		saleOff = getResources().getDrawable(R.drawable.opendoor);
+		saleOff = getResources().getDrawable(R.drawable.tab_ic_car_def);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		saleOff.setBounds(0, 0, saleOff.getMinimumWidth(),
 				saleOff.getMinimumHeight());
 
-		personOn = getResources().getDrawable(R.drawable.ren2);
+		personOn = getResources().getDrawable(R.drawable.tab_ic_wo_pre);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		personOn.setBounds(0, 0, personOn.getMinimumWidth(),
 				personOn.getMinimumHeight());
 
-		personOff = getResources().getDrawable(R.drawable.ren);
+		personOff = getResources().getDrawable(R.drawable.tab_ic_wo_def);
 		// 调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示
 		personOff.setBounds(0, 0, personOff.getMinimumWidth(),
 				personOff.getMinimumHeight());
@@ -474,19 +459,19 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 		switch (index) {
 		case 0:
 			tabRbCenter.setCompoundDrawables(null, centerOn, null, null);
-			tabRbCenter.setTextColor(getResources().getColor(R.color.orange_dark));
+			tabRbCenter.setTextColor(getResources().getColor(R.color.darkblue));
 			break;
 		case 1:
 			tabRbShow.setCompoundDrawables(null, showOn, null, null);
-			tabRbShow.setTextColor(getResources().getColor(R.color.orange_dark));
+			tabRbShow.setTextColor(getResources().getColor(R.color.darkblue));
 			break;
 		case 2:
 			tabRbSale.setCompoundDrawables(null, saleOn, null, null);
-			tabRbSale.setTextColor(getResources().getColor(R.color.orange_dark));
+			tabRbSale.setTextColor(getResources().getColor(R.color.darkblue));
 			break;
 		case 3:
 			tabRbPerson.setCompoundDrawables(null, personOn, null, null);
-			tabRbPerson.setTextColor(getResources().getColor(R.color.orange_dark));
+			tabRbPerson.setTextColor(getResources().getColor(R.color.darkblue));
 			break;
 
 		default:
@@ -809,16 +794,12 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			/**
-			 * 二期修改
-			 */
-			
-//			if ((System.currentTimeMillis() - mExitTime) > 2000) {
-//				ToastUtils.show(MainActivity.this, getResources().getString(R.string.esc));
-//				mExitTime = System.currentTimeMillis();
-//			} else {
-//				finish();
-//			}
+			if ((System.currentTimeMillis() - mExitTime) > 2000) {
+				ToastUtils.show(MainActivity.this, getResources().getString(R.string.esc));
+				mExitTime = System.currentTimeMillis();
+			} else {
+				finish();
+			}
 			Intent home = new Intent(Intent.ACTION_MAIN);
 			home.addCategory(Intent.CATEGORY_HOME);
 			startActivity(home);
@@ -979,7 +960,7 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 								if (FlowConsts.STATUE_2.equals(state)) {
 									// token失效
 									ContextUtil.exitLogin(
-											MainActivity.this, header);
+											MainActivity.this, rlMain);
 								}
 								ShowMsg(msg);
 								return;
@@ -1113,7 +1094,7 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 							if (FlowConsts.STATUE_2.equals(state)) {
 								// token失效
 								ContextUtil.exitLogin(
-										MainActivity.this, header);
+										MainActivity.this, rlMain);
 							}
 						}
 					}

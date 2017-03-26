@@ -6,12 +6,6 @@
     android:orientation="vertical" 
     android:background="@drawable/icon_bg_mykey">
 
-    <deling.cellcom.com.cn.widget.Header
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/activity_head_height"
-        android:orientation="vertical" />
-
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
@@ -41,26 +35,26 @@
 
             <RadioButton
                 android:id="@+id/tab_rb_a"
-                style="@style/app_small_textStyle5"
+                style="@style/app_small_textStyle3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:background="@color/transparent"
                 android:button="@null"
-                android:drawableTop="@drawable/ren"
+                android:drawableTop="@drawable/tab_ic_jiedai_def"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@string/main_center" />   
 
             <RadioButton
                 android:id="@+id/tab_rb_b"
-                style="@style/app_small_textStyle5"
+                style="@style/app_small_textStyle3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:background="@color/transparent"
                 android:button="@null"
-                android:drawableTop="@drawable/bugle"
+                android:drawableTop="@drawable/tab_ic_car_def"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@string/main_show" />
@@ -68,26 +62,26 @@
 
             <RadioButton
                 android:id="@+id/tab_rb_c"
-                style="@style/app_small_textStyle5"
+                style="@style/app_small_textStyle3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:background="@color/transparent"
                 android:button="@null"
-                android:drawableTop="@drawable/opendoor"
+                android:drawableTop="@drawable/tab_ic_hudong_def"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@string/main_sale" />             
 
             <RadioButton
                 android:id="@+id/tab_rb_d"
-                style="@style/app_small_textStyle5"
+                style="@style/app_small_textStyle3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:background="@color/transparent"
                 android:button="@null"
-                android:drawableTop="@drawable/ren"
+                android:drawableTop="@drawable/tab_ic_wo_def"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@string/main_person" />

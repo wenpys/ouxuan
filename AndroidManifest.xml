@@ -388,6 +388,7 @@
             android:theme="@style/LiveActivityStyle">
         </activity>
         <activity android:name="deling.cellcom.com.cn.activity.main.CallActivity"></activity>
+        <activity android:name="deling.cellcom.com.cn.activity.main.SaleDetailActivity"></activity>
     </application>
 	<!-- 硬件SDK支持 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />

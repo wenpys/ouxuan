@@ -1,8 +1,10 @@
-package deling.cellcom.com.cn.activity.me;
+package deling.cellcom.com.cn.activity.main;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import net.tsz.afinal.FinalBitmap;
@@ -18,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -41,9 +44,9 @@ import deling.cellcom.com.cn.activity.main.CallActivity;
 import deling.cellcom.com.cn.activity.main.LaunchActivity;
 import deling.cellcom.com.cn.activity.main.MainActivity;
 import deling.cellcom.com.cn.activity.welcome.LoginActivity;
-import deling.cellcom.com.cn.activity.zxing.activity.CaptureActivity;
 import deling.cellcom.com.cn.adapter.FragCenterRecAdapter;
 import deling.cellcom.com.cn.adapter.FragNoticeAdapter;
+import deling.cellcom.com.cn.adapter.FragSaleListAdapter;
 import deling.cellcom.com.cn.bean.AreaNotice;
 import deling.cellcom.com.cn.bean.SvRecord;
 import deling.cellcom.com.cn.utils.CheckNetworkState;
@@ -55,35 +58,24 @@ import deling.cellcom.com.cn.widget.ActionSheet.OnActionSheetSelected;
 import deling.cellcom.com.cn.widget.CircleImageView;
 
 /**
- * 个人
+ * 互动营销
  * 
- * @author wma
+ * @author xpw
  * 
  */
-public class CenterFragment extends FragmentBase implements
+public class SaleFragment extends FragmentBase implements
 OnHeaderRefreshListener, OnFooterLoadListener {
-	private FinalBitmap finalBitmap;
-	private RelativeLayout mLyinfo;
-	public ImageView cImg;// 头像
-	private TextView tvName;
-	private TextView tvStatus;
-	private TextView tvSvcount;
-	private TextView tvNorecord;
-	private ListView listView;
-	private LinearLayout llNotice;
-	private TextView tvNotice;
 	private TextView tvTile;
 	private ImageView imQrcode;
 	private ImageView imStateLight;
+	private ListView listView;
 	private AbPullToRefreshView mAbPullToRefreshView = null;
 	private AbLoadDialogFragment mDialogFragment = null;
-	public final static int CHANGEHEADER_REQUEST_CODE = 1 * 111;
 
 	private Activity activity;
 	private String userid;
-	private String path;// 头像地址
-	private List<SvRecord> records = new ArrayList<SvRecord>();
-	private FragCenterRecAdapter adapter;
+	private List<Map<String, String>> records = new ArrayList<Map<String, String>>();
+	private FragSaleListAdapter adapter;
 	
 	@Override
 	public void onAttach(Activity activity) {
@@ -105,7 +97,7 @@ OnHeaderRefreshListener, OnFooterLoadListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_center, container, false);
+		View view = inflater.inflate(R.layout.fragment_sale, container, false);
 		initView(view);
 		initListener();
 		userid = cellcom.com.cn.util.SharepreferenceUtil
@@ -115,18 +107,20 @@ OnHeaderRefreshListener, OnFooterLoadListener {
 	}
 
 	private void initListener() {
-		cImg.setOnClickListener(new OnClickListener() {
+		imQrcode.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				
 			}
 		});
-		imQrcode.setOnClickListener(new OnClickListener() {
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
-			public void onClick(View v) {
-				OpenActivity(CaptureActivity.class);
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				//打开活动内容
+				OpenActivity(SaleDetailActivity.class);
 			}
 		});
 	}
@@ -135,20 +129,9 @@ OnHeaderRefreshListener, OnFooterLoadListener {
 		tvTile = (TextView) view.findViewById(R.id.title);
 		imQrcode = (ImageView) view.findViewById(R.id.leftimg);
 		imStateLight = (ImageView) view.findViewById(R.id.statelight);
-		tvName = (TextView) view.findViewById(R.id.name);
-		tvStatus = (TextView) view.findViewById(R.id.status);
-		tvSvcount = (TextView) view.findViewById(R.id.svcount);
-		tvNorecord = (TextView) view.findViewById(R.id.norecd);
-		mLyinfo = (RelativeLayout) view.findViewById(R.id.personal_info);
-		
-		cImg = (ImageView) view.findViewById(R.id.main_found_lv_item_img);
 		listView = (ListView) view.findViewById(R.id.listview);
-		llNotice = (LinearLayout) view.findViewById(R.id.ll_notice);
-		tvNotice = (TextView) view.findViewById(R.id.notice);
 		
-		llNotice.setVisibility(View.GONE);
-		
-		adapter = new FragCenterRecAdapter(activity, records);
+		adapter = new FragSaleListAdapter(activity, records);
 		listView.setAdapter(adapter);
 		// 获取ListView对象
 		mAbPullToRefreshView = (AbPullToRefreshView) view
@@ -163,42 +146,27 @@ OnHeaderRefreshListener, OnFooterLoadListener {
 				this.getResources().getDrawable(R.drawable.progress_circular));
 		mAbPullToRefreshView.getFooterView().setFooterProgressBarDrawable(
 				this.getResources().getDrawable(R.drawable.progress_circular));
-		
-		finalBitmap = FinalBitmap.create(activity);
 	}
 
 	private void initData() {
-		tvTile.setText(getResources().getString(string.main_center));
-		imQrcode.setImageResource(drawable.icon_activity_askkey_scan);
+		tvTile.setText(getResources().getString(string.main_sale));
+		imQrcode.setImageResource(drawable.qrcode);
 		
-		String avatar = MyApplication.getInstances().getAvatar();
-		//改为默认头像
-//		if(avatar != null && !avatar.equals(""))
-//			Picasso.with(activity).load(MyApplication.getInstances().getAvatar())
-//				.placeholder(R.drawable.logo).into(cImg);
-//		else
-			Picasso.with(activity).load(R.drawable.logo).into(cImg);
-		
-		Random random = new Random();
-		for(int i=0;i<3;i++){
-			SvRecord record = new SvRecord();
-			record.setName("张三"+i);
-			record.setDate(new Date());
-			record.setRating(random.nextInt(5));
-			records.add(record);
-		}
-		tvNorecord.setVisibility(View.GONE);
-		tvSvcount.setText(records.size()+"");
+		Map<String, String> record = new HashMap<String, String>();
+		record.put("title","预定送礼");
+		record.put("image","https://gw.alicdn.com/tps/TB1YPFVLpXXXXcJXVXXXXXXXXXX-750-263.jpg_760x760Q75.jpg");
+		records.add(record);
+
+		record = new HashMap<String, String>();
+		record.put("title","摇红包");
+		record.put("image","http://p3.so.qhmsg.com/bdr/_240_/t01311577c64cea4fd8.jpg");
+		records.add(record);
+
+		record = new HashMap<String, String>();
+		record.put("title","现场抽奖");
+		record.put("image","http://p0.so.qhimgs1.com/bdr/_240_/t01cfe29dbfbbdd4f1c.jpg");
+		records.add(record);
 		adapter.notifyDataSetChanged();
-			
-			
-		String phone = PreferencesUtils.getString(activity, "phone", "");
-		if(phone.length() == 11)
-			phone = phone.substring(0, 3) + "****" +  phone.substring(7, 11);
-//		tvName.setText(phone);
-		
-		mLyinfo.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
-				(int) (ContextUtil.getWidth(activity)/2.16)));
 	}
 	
 	private void getPersonInfo() {

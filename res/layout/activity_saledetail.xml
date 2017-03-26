@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="deling.cellcom.com.cn.activity.main.LaunchActivity" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_head_height"
+        android:layout_alignParentTop="true">
+        
+        <TextView 
+	        android:id="@+id/title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text=""
+            />
+
+        <ImageView
+            android:id="@+id/leftimg"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="7dp"
+            android:src="@drawable/main_nav_back_black" />        
+        
+        <ImageView
+            android:id="@+id/setting"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/statelight"
+            android:scaleType="centerInside"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/setting2" />
+        
+        <ImageView
+            android:id="@+id/statelight"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/main_msg_count_tj" />
+        
+    </RelativeLayout>
+    
+    <ImageView
+        android:background="@drawable/icon_bg_launch3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:layout_below="@+id/header" />
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="71dp"
+        android:layout_marginLeft="54dp"
+        android:text="显示" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/show"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="54dp"
+        android:text="开始" />
+
+</RelativeLayout>

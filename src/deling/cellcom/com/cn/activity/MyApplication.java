@@ -122,7 +122,7 @@ public class MyApplication extends Application {
 		// 在使用 SDK 各组间之前初始化 context 信息，传入 ApplicationContext
 		mApplication = this;
 		
-		TestinAgent.init(this, "57c978675dd7eb1be3eeaabd5d56a0ff", "hgzy");
+//		TestinAgent.init(this, "57c978675dd7eb1be3eeaabd5d56a0ff", "hgzy");
     	JPushInterface.setDebugMode(true); // 设置开启日志,发布时请关闭日志
 		JPushInterface.init(this); // 初始化 JPush
 	}

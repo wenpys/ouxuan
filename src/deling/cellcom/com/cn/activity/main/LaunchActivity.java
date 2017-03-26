@@ -117,7 +117,10 @@ public class LaunchActivity extends FragmentActivityBase implements OnCancelList
 	
 	private void initData() {
 		begintime = System.currentTimeMillis();// 时间戳
-		getNetData();
+//		getNetData();
+		Intent intent = new Intent(LaunchActivity.this,LoginActivity.class);
+		startActivity(intent);
+		finish();
 	}
 	private void initView() {
 	}

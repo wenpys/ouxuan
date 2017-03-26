@@ -1,9 +1,13 @@
-package deling.cellcom.com.cn.activity.me;
+package deling.cellcom.com.cn.activity.main;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+
+import u.aly.cu;
 
 import net.tsz.afinal.FinalBitmap;
 import android.app.Activity;
@@ -18,6 +22,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -41,9 +47,10 @@ import deling.cellcom.com.cn.activity.main.CallActivity;
 import deling.cellcom.com.cn.activity.main.LaunchActivity;
 import deling.cellcom.com.cn.activity.main.MainActivity;
 import deling.cellcom.com.cn.activity.welcome.LoginActivity;
-import deling.cellcom.com.cn.activity.zxing.activity.CaptureActivity;
 import deling.cellcom.com.cn.adapter.FragCenterRecAdapter;
 import deling.cellcom.com.cn.adapter.FragNoticeAdapter;
+import deling.cellcom.com.cn.adapter.FragSaleListAdapter;
+import deling.cellcom.com.cn.adapter.FragShowGridAdapter;
 import deling.cellcom.com.cn.bean.AreaNotice;
 import deling.cellcom.com.cn.bean.SvRecord;
 import deling.cellcom.com.cn.utils.CheckNetworkState;
@@ -55,35 +62,23 @@ import deling.cellcom.com.cn.widget.ActionSheet.OnActionSheetSelected;
 import deling.cellcom.com.cn.widget.CircleImageView;
 
 /**
- * 个人
+ * 互动营销
  * 
- * @author wma
+ * @author xpw
  * 
  */
-public class CenterFragment extends FragmentBase implements
-OnHeaderRefreshListener, OnFooterLoadListener {
-	private FinalBitmap finalBitmap;
-	private RelativeLayout mLyinfo;
-	public ImageView cImg;// 头像
-	private TextView tvName;
-	private TextView tvStatus;
-	private TextView tvSvcount;
-	private TextView tvNorecord;
-	private ListView listView;
-	private LinearLayout llNotice;
-	private TextView tvNotice;
+public class ShowFragment extends FragmentBase {
 	private TextView tvTile;
 	private ImageView imQrcode;
 	private ImageView imStateLight;
-	private AbPullToRefreshView mAbPullToRefreshView = null;
-	private AbLoadDialogFragment mDialogFragment = null;
-	public final static int CHANGEHEADER_REQUEST_CODE = 1 * 111;
+	private GridView gvContent;
 
 	private Activity activity;
-	private String userid;
-	private String path;// 头像地址
-	private List<SvRecord> records = new ArrayList<SvRecord>();
-	private FragCenterRecAdapter adapter;
+	private FragShowGridAdapter adapter;
+	private List<Map<String, String>> datas = new ArrayList<Map<String,String>>();
+
+	private long mLastTime = 0;
+	private int curSelect = -1;
 	
 	@Override
 	public void onAttach(Activity activity) {
@@ -105,100 +100,95 @@ OnHeaderRefreshListener, OnFooterLoadListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_center, container, false);
+		View view = inflater.inflate(R.layout.fragment_show, container, false);
 		initView(view);
 		initListener();
-		userid = cellcom.com.cn.util.SharepreferenceUtil
-				.getDate(activity, "userid");
 		initData();
 		return view;
 	}
 
 	private void initListener() {
-		cImg.setOnClickListener(new OnClickListener() {
+		imQrcode.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				
 			}
 		});
-		imQrcode.setOnClickListener(new OnClickListener() {
-
+		gvContent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			
 			@Override
-			public void onClick(View v) {
-				OpenActivity(CaptureActivity.class);
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				if(curSelect != -1 && curSelect != position){
+					return;
+				}
+                //发送鼠标左键功能
+                long mCurTime = System.currentTimeMillis();
+                
+                //判断是否发生了双击
+                if(mLastTime != 0 && mCurTime - mLastTime < 500) {
+                    System.out.println("************双击************onclickTimes************"+"第"+position+"条");
+                    mLastTime = mCurTime - 500;
+    				adapter.setSeclection(-1);
+    				adapter.notifyDataSetChanged();
+    				curSelect = -1;
+                }else {
+                    mLastTime = mCurTime;
+    				adapter.setSeclection(position);
+    				adapter.notifyDataSetChanged();
+    				curSelect = position;
+                }
 			}
 		});
 	}
-
+    
 	private void initView(View view) {
 		tvTile = (TextView) view.findViewById(R.id.title);
 		imQrcode = (ImageView) view.findViewById(R.id.leftimg);
 		imStateLight = (ImageView) view.findViewById(R.id.statelight);
-		tvName = (TextView) view.findViewById(R.id.name);
-		tvStatus = (TextView) view.findViewById(R.id.status);
-		tvSvcount = (TextView) view.findViewById(R.id.svcount);
-		tvNorecord = (TextView) view.findViewById(R.id.norecd);
-		mLyinfo = (RelativeLayout) view.findViewById(R.id.personal_info);
+		gvContent = (GridView) view.findViewById(R.id.gridView);
 		
-		cImg = (ImageView) view.findViewById(R.id.main_found_lv_item_img);
-		listView = (ListView) view.findViewById(R.id.listview);
-		llNotice = (LinearLayout) view.findViewById(R.id.ll_notice);
-		tvNotice = (TextView) view.findViewById(R.id.notice);
+		adapter = new FragShowGridAdapter(activity, datas);
+		gvContent.setAdapter(adapter);
 		
-		llNotice.setVisibility(View.GONE);
-		
-		adapter = new FragCenterRecAdapter(activity, records);
-		listView.setAdapter(adapter);
-		// 获取ListView对象
-		mAbPullToRefreshView = (AbPullToRefreshView) view
-				.findViewById(R.id.mPullRefreshView);
-
-		// 设置监听器
-		mAbPullToRefreshView.setOnHeaderRefreshListener(this);
-		mAbPullToRefreshView.setOnFooterLoadListener(this);
-
-		// 设置进度条的样式
-		mAbPullToRefreshView.getHeaderView().setHeaderProgressBarDrawable(
-				this.getResources().getDrawable(R.drawable.progress_circular));
-		mAbPullToRefreshView.getFooterView().setFooterProgressBarDrawable(
-				this.getResources().getDrawable(R.drawable.progress_circular));
-		
-		finalBitmap = FinalBitmap.create(activity);
 	}
 
 	private void initData() {
-		tvTile.setText(getResources().getString(string.main_center));
-		imQrcode.setImageResource(drawable.icon_activity_askkey_scan);
+		tvTile.setText(getResources().getString(string.main_sale));
+		imQrcode.setVisibility(View.GONE);
 		
-		String avatar = MyApplication.getInstances().getAvatar();
-		//改为默认头像
-//		if(avatar != null && !avatar.equals(""))
-//			Picasso.with(activity).load(MyApplication.getInstances().getAvatar())
-//				.placeholder(R.drawable.logo).into(cImg);
-//		else
-			Picasso.with(activity).load(R.drawable.logo).into(cImg);
+		Map<String, String> data = new HashMap<String, String>();
+		data.put("title","外观");
+		data.put("icon",R.drawable.waiguan+"");
+		data.put("url","");
+		datas.add(data);
+
+		data = new HashMap<String, String>();
+		data.put("title","内饰");
+		data.put("icon",R.drawable.neishi+"");
+		data.put("url","");
+		datas.add(data);
+
+		data = new HashMap<String, String>();
+		data.put("title","动力");
+		data.put("icon",R.drawable.dongli+"");
+		data.put("url","");
+		datas.add(data);
+
+		data = new HashMap<String, String>();
+		data.put("title","操控");
+		data.put("icon",R.drawable.caokong+"");
+		data.put("url","");
+		datas.add(data);
+
+		data = new HashMap<String, String>();
+		data.put("title","安全");
+		data.put("icon",R.drawable.anquan+"");
+		data.put("url","");
+		datas.add(data);
 		
-		Random random = new Random();
-		for(int i=0;i<3;i++){
-			SvRecord record = new SvRecord();
-			record.setName("张三"+i);
-			record.setDate(new Date());
-			record.setRating(random.nextInt(5));
-			records.add(record);
-		}
-		tvNorecord.setVisibility(View.GONE);
-		tvSvcount.setText(records.size()+"");
 		adapter.notifyDataSetChanged();
-			
-			
-		String phone = PreferencesUtils.getString(activity, "phone", "");
-		if(phone.length() == 11)
-			phone = phone.substring(0, 3) + "****" +  phone.substring(7, 11);
-//		tvName.setText(phone);
-		
-		mLyinfo.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
-				(int) (ContextUtil.getWidth(activity)/2.16)));
 	}
 	
 	private void getPersonInfo() {
@@ -251,20 +241,5 @@ OnHeaderRefreshListener, OnFooterLoadListener {
 				}
 			}
 		});*/
-	}
-
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-	}
-
-	@Override
-	public void onFooterLoad(AbPullToRefreshView view) {
-		mAbPullToRefreshView.onFooterLoadFinish();
-	}
-
-	@Override
-	public void onHeaderRefresh(AbPullToRefreshView view) {
-		mAbPullToRefreshView.onHeaderRefreshFinish();
 	}
 }

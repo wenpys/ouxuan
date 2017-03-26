@@ -12,6 +12,8 @@
     <string name="main_show">车型卖点</string>
     <string name="main_sale">互动营销</string>
     <string name="main_person">我的信息</string>
+    <string name="activiey_runing">活动还没结束</string>
+    <string name="activiey_opening">活动还没关闭</string>
     <string name="main_fq">发起</string>
     <string name="app_btnyes">确定</string>
     <string name="app_btnno">取消</string>
