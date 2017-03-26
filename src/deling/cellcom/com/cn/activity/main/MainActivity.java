@@ -446,10 +446,10 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 	 *            下标
 	 */
 	private void setTabUI(int index) {
-		tabRbCenter.setTextColor(getResources().getColor(R.color.white));
-		tabRbShow.setTextColor(getResources().getColor(R.color.white));
-		tabRbSale.setTextColor(getResources().getColor(R.color.white));
-		tabRbPerson.setTextColor(getResources().getColor(R.color.white));
+		tabRbCenter.setTextColor(getResources().getColor(R.color.darkgrey));
+		tabRbShow.setTextColor(getResources().getColor(R.color.darkgrey));
+		tabRbSale.setTextColor(getResources().getColor(R.color.darkgrey));
+		tabRbPerson.setTextColor(getResources().getColor(R.color.darkgrey));
 
 		tabRbCenter.setCompoundDrawables(null, centerOff, null, null); // 设置左图标
 		tabRbShow.setCompoundDrawables(null, showOff, null, null); // 设置左图标
