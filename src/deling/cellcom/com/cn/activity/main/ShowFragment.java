@@ -121,6 +121,7 @@ public class ShowFragment extends FragmentBase {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				if(curSelect != -1 && curSelect != position){
+					ToastUtils.show(activity, "请先双击释放模块");
 					return;
 				}
                 //发送鼠标左键功能

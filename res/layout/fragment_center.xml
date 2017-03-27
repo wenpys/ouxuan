@@ -75,7 +75,7 @@
 	      	android:id="@+id/main_worn"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:layout_marginTop="@dimen/activity_top_margin"
+	        android:layout_marginTop="1dp"
 	        android:background="@drawable/app_lineitemselector"
 	        android:orientation="horizontal"
 	        android:padding="@dimen/activity_left_padding">
@@ -121,7 +121,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:orientation="horizontal"
-	        android:padding="@dimen/activity_left_padding">
+	        android:layout_marginTop="2dp">
 		
 			<com.ab.view.pullview.AbPullToRefreshView 
 			    android:id="@+id/mPullRefreshView"

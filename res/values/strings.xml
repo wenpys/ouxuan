@@ -17,6 +17,7 @@
     <string name="main_fq">发起</string>
     <string name="app_btnyes">确定</string>
     <string name="app_btnno">取消</string>
+    <string name="app_btnsave">保存</string>
     <string name="edit">编辑</string>
     <string name="wc">完成</string>
     <string name="main_xxtz">下线通知</string>

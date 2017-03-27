@@ -8,20 +8,22 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import cellcom.com.cn.deling.R;
-
 import com.squareup.picasso.Picasso;
-import com.umeng.analytics.MobclickAgent;
-
 import deling.cellcom.com.cn.activity.MyApplication;
 import deling.cellcom.com.cn.activity.WebViewActivity;
 import deling.cellcom.com.cn.activity.base.FragmentBase;
@@ -35,6 +37,7 @@ import deling.cellcom.com.cn.utils.ToastUtils;
 import deling.cellcom.com.cn.widget.ActionSheet;
 import deling.cellcom.com.cn.widget.ActionSheet.OnActionSheetSelected;
 import deling.cellcom.com.cn.widget.CircleImageView;
+import deling.cellcom.com.cn.widget.popupwindow.AlertDialogPopupWindow;
 
 /**
  * 个人
@@ -44,17 +47,14 @@ import deling.cellcom.com.cn.widget.CircleImageView;
  */
 public class PersonFm extends FragmentBase implements OnClickListener {
 	private FinalBitmap finalBitmap;
-	private RelativeLayout mLyinfo;
-	private LinearLayout mShare;// 分享
-	private LinearLayout mSetting, llVisitor, llCoupon, llFeedback, llQuestion, llAbout, llLogout;
-	private ImageView ivMyKey, ivApplyKey, ivOpenlog, ivAccredit;
-	private TextView tvPhone;
+	private LinearLayout llAvatar, llNick, llSex, llUpdatePwd, llLogout;
+	private TextView tvNick, tvSex, tvPhone, tvShopname, tvShopaddr;
 	public final static int CHANGEHEADER_REQUEST_CODE = 1 * 111;
 
 	public CircleImageView cImg;// 头像
 	private Activity activity;
-	private String userid;
 	private String path;// 头像地址
+	private AlertDialog myDialog = null;
 	
 	@Override
 	public void onAttach(Activity activity) {
@@ -79,8 +79,6 @@ public class PersonFm extends FragmentBase implements OnClickListener {
 		View view = inflater.inflate(R.layout.fragment_personal, container, false);
 		initView(view);
 		initListener();
-		userid = cellcom.com.cn.util.SharepreferenceUtil
-				.getDate(activity, "userid");
 		initData();
 		return view;
 	}
@@ -90,55 +88,34 @@ public class PersonFm extends FragmentBase implements OnClickListener {
 
 			@Override
 			public void onClick(View v) {
-//				ActionSheet.showSheet(activity, (OnActionSheetSelected)activity, (OnCancelListener)activity, "1");
+				ActionSheet.showSheet(activity, (OnActionSheetSelected)activity, (OnCancelListener)activity, "1");
 			}
 		});
 
 	}
 
 	private void initView(View view) {
+		tvNick = (TextView) view.findViewById(R.id.nick);
+		tvSex = (TextView) view.findViewById(R.id.sex);
 		tvPhone = (TextView) view.findViewById(R.id.phone);
-		ivMyKey = (ImageView) view.findViewById(R.id.mykey);
-		ivOpenlog = (ImageView) view.findViewById(R.id.openlog);
-		ivAccredit = (ImageView) view.findViewById(R.id.accredit);
-		// 申请钥匙
-		ivApplyKey = (ImageView) view.findViewById(R.id.applykey);
+		tvShopname = (TextView) view.findViewById(R.id.shopname);
+		tvShopaddr = (TextView) view.findViewById(R.id.shopaddr);
 		
-		mLyinfo = (RelativeLayout) view.findViewById(R.id.personal_info);
-		// 分享
-		mShare = (LinearLayout) view.findViewById(R.id.personal_share);
-		// 设置
-		mSetting = (LinearLayout) view.findViewById(R.id.personal_setting);
-		// 咨询服务
-		llCoupon = (LinearLayout) view.findViewById(R.id.coupon);
-		// 问题反馈
-		llFeedback = (LinearLayout) view.findViewById(R.id.feedback);
-		// 常见问题
-		llQuestion = (LinearLayout) view.findViewById(R.id.question);
-		// 关于我们
-		llAbout = (LinearLayout) view.findViewById(R.id.personal_about);
+		// 昵称
+		llNick = (LinearLayout) view.findViewById(R.id.ll_nick);
+		// 性别
+		llSex = (LinearLayout) view.findViewById(R.id.ll_sex);
+		// 修改密码
+		llUpdatePwd = (LinearLayout) view.findViewById(R.id.ll_updatepwd);
 		// 退出登录
 		llLogout = (LinearLayout) view.findViewById(R.id.personal_logout);
-		llVisitor = (LinearLayout) view.findViewById(R.id.visitor);
 
 		
-		// personal_wdqb.setVisibility(view.GONE);
-		// personal_zlfw.setVisibility(View.GONE);
-		// mLyinfo.setOnClickListener(this);
-		ivMyKey.setOnClickListener(this);
-		ivOpenlog.setOnClickListener(this);
-		ivAccredit.setOnClickListener(this);
-		llVisitor.setOnClickListener(this);
-		mSetting.setOnClickListener(this);
-		mShare.setOnClickListener(this);
-		mLyinfo.setOnClickListener(this);
-		ivApplyKey.setOnClickListener(this);
-		llCoupon.setOnClickListener(this);
-		llFeedback.setOnClickListener(this);
-		llQuestion.setOnClickListener(this);
-		llAbout.setOnClickListener(this);
+		llNick.setOnClickListener(this);
+		llSex.setOnClickListener(this);
+		llUpdatePwd.setOnClickListener(this);
 		llLogout.setOnClickListener(this);
-		cImg = (CircleImageView) view.findViewById(R.id.main_found_lv_item_img);
+		cImg = (CircleImageView) view.findViewById(R.id.avatar);
 
 		finalBitmap = FinalBitmap.create(activity);
 	}
@@ -152,17 +129,10 @@ public class PersonFm extends FragmentBase implements OnClickListener {
 //		else
 			Picasso.with(activity).load(R.drawable.logo).into(cImg);
 		
-		String phone = PreferencesUtils.getString(activity, "phone", "");
-		if(phone.length() == 11)
-			phone = phone.substring(0, 3) + "****" +  phone.substring(7, 11);
-		tvPhone.setText(phone);
-		
-		mLyinfo.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
-				(int) (ContextUtil.getWidth(activity)/2.16)));
-	}
-	
-	private void openShare(){
-		ActionSheet.showSheet(activity, (OnActionSheetSelected)activity, (OnCancelListener)activity, "3");
+//		String phone = PreferencesUtils.getString(activity, "phone", "");
+//		if(phone.length() == 11)
+//			phone = phone.substring(0, 3) + "****" +  phone.substring(7, 11);
+//		tvPhone.setText(phone);
 	}
 
 	private void getPersonInfo() {
@@ -220,64 +190,69 @@ public class PersonFm extends FragmentBase implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.mykey:
-//			OpenActivity(MyKeyActivity.class);
-			OpenActivity(MyKeyTwoActivity.class);
-			break;
-		case R.id.openlog:  //开门记录
+		case R.id.ll_nick: //修改昵称
 		{
-//			Intent intent = new Intent(activity,WebViewActivity.class);
-//			Bundle bundle = new Bundle();
-//			bundle.putString("title", "开门记录");
-//			bundle.putString("url", "http://falago.cn/door/static/dlkm/open_record3.html");
-//			intent.putExtras(bundle);
-//			startActivity(intent);
-			ToastUtils.show(activity, "该版本暂时无法使用此功能");
+			final EditText editText = new EditText(activity);
+			myDialog = new AlertDialog.Builder(activity).create();
+			myDialog.show();
+			myDialog.getWindow().setContentView(R.layout.app_alertdialog_edit);
+			TextView tvTitle =  (TextView) myDialog.getWindow().findViewById(R.id.tv_title);
+			TextView tvContent =  (TextView) myDialog.getWindow().findViewById(R.id.tv_content);
+			Button btSetting =  (Button) myDialog.getWindow().findViewById(R.id.btn_ok);
+			Button btCancel =  (Button) myDialog.getWindow().findViewById(R.id.btn_cancel);
+			tvTitle.setText("修改昵称");
+			tvContent.setText(tvNick.getText());
+			btSetting.setText("保存");
+			btCancel.setText("取消");
+			btSetting.setOnClickListener(new View.OnClickListener() {  
+                 @Override  
+                 public void onClick(View v) {  
+                	 
+                 }  
+            });   
+			btCancel.setOnClickListener(new View.OnClickListener() {  
+                 @Override  
+                 public void onClick(View v) {  
+                     myDialog.dismiss();  
+                 }  
+            });
+//			myDialog = new AlertDialog.Builder(activity).setTitle("修改昵称").setIcon(android.R.drawable.ic_dialog_info).setView(editText)
+//				.setPositiveButton("保存", new DialogInterface.OnClickListener() {
+//
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						String nickString = editText.getText().toString();
+//						if (TextUtils.isEmpty(nickString)) {
+//							ToastUtils.show(activity, "亲,昵称不能为空哦~");
+//							return;
+//						}
+////						updateRemoteNick(nickString);
+//						myDialog.dismiss();
+//					}
+//				}).setNegativeButton("取消", null).show();
 		}
 			break;
-		case R.id.accredit://家属授权
-			int keynum = MyApplication.getInstances().getKeyNum();
-			if(MyApplication.getInstances().getUserType() == 1 && keynum > 0){
-				OpenActivity(AuthoActivity.class);
-			}else if(keynum < 1){
-				ShowMsg("抱歉，您暂无可授权钥匙");
-			}else
-				ShowMsg("您需要拥有业主身份，才能进行授权操作");
+		case R.id.ll_sex:  //修改性别
+		{
+			final EditText editText = new EditText(activity);
+			myDialog = new AlertDialog.Builder(activity).setTitle("修改性别").setIcon(android.R.drawable.ic_dialog_info).setView(editText)
+					.setPositiveButton("保存", new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							String nickString = editText.getText().toString();
+							if (TextUtils.isEmpty(nickString)) {
+								ToastUtils.show(activity, "亲,性别不能为空哦~");
+								return;
+							}
+//							updateRemoteNick(nickString);
+							myDialog.dismiss();
+						}
+					}).setNegativeButton("取消", null).show();
+		}
+			break;
+		case R.id.ll_updatepwd:  //修改密码
 			
-			break;
-		case R.id.visitor:
-			ToastUtils.show(activity, "该版本暂时无法使用此功能");
-			break;
-		case R.id.personal_share:
-			openShare();
-			break;
-		case R.id.personal_setting:
-		{
-			Intent intent = new Intent(activity, SettingActivity.class);
-			activity.startActivityForResult(intent, 201);
-		}
-			break;
-		case R.id.applykey:	// 申请钥匙
-			OpenActivity(AskKeyActivity.class);
-			break;
-		case R.id.coupon:	// 优惠券 
-			OpenActivity(CouponActivity.class);
-			break;
-		case R.id.feedback:	// 问题反馈
-			OpenActivity(FaultActivity.class);
-			break;
-		case R.id.question:	// 常见问题
-		{
-			Intent intent = new Intent(activity,WebViewActivity.class);
-			Bundle bundle = new Bundle();
-			bundle.putString("title", "常见问题");
-			bundle.putString("url", "http://www.ideling.com/door/static/dlkm/com_question2.html");
-			intent.putExtras(bundle);
-			startActivity(intent);
-		}
-			break;
-		case R.id.personal_about:	// 关于我们
-			OpenActivity(AboutActivity.class);
 			break;
 		case R.id.personal_logout:	// 退出登录
 			AlertDialog.Builder builder = new Builder(activity);
@@ -292,7 +267,6 @@ public class PersonFm extends FragmentBase implements OnClickListener {
 						Intent mIntent = new Intent(activity, LoginActivity.class);			
 						startActivity(mIntent);
 						MyApplication.getInstances().getActivities().clear();
-						MobclickAgent.onProfileSignOff();
 						activity.finish();
 					}
 				})
@@ -303,10 +277,5 @@ public class PersonFm extends FragmentBase implements OnClickListener {
 			break;
 		}
 
-	}
-
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
 	}
 }

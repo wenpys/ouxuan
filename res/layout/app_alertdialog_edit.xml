@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_dialog_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_dialog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_bombbox"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:orientation="vertical" >
+        
+		 <TextView  
+            android:id="@+id/tv_title"  
+            android:layout_width="fill_parent"  
+            android:layout_height="30.0dip"  
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#ffffffff"
+            android:text="标题"  
+            android:visibility="visible" />
+		 
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            tools:ignore="InefficientWeight" >
+
+            <EditText
+                android:id="@+id/tv_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:singleLine="true"
+                android:paddingBottom="15.0dip"  
+                android:paddingLeft="20.0dip"  
+                android:paddingRight="20.0dip"  
+                android:paddingTop="15.0dip" /> 
+            
+        </LinearLayout>
+
+        <View  
+            android:layout_width="fill_parent"  
+            android:layout_height="1.0px"  
+            android:background="#ffd0d0d0" />
+            
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+  
+            <Button
+                android:id="@+id/btn_ok"
+                style="@style/app_textStyle6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/app_alertdialog_selector"
+                android:gravity="center"
+                android:minHeight="@dimen/btn_minheight"
+                android:minWidth="@dimen/btn_minwidth"
+                android:text="@string/app_btnsave" />
+  
+            <Button
+                android:id="@+id/btn_cancel"
+                style="@style/app_textStyle6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/app_alertdialog_selector"
+                android:gravity="center"
+                android:minHeight="@dimen/btn_minheight"
+                android:minWidth="@dimen/btn_minwidth"
+                android:text="@string/app_btnno" /> 
+        </LinearLayout> 
+    </LinearLayout>
+
+</LinearLayout>

@@ -3,8 +3,7 @@
     style="@style/app_bg"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/icon_bg_mykey">
+    android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -28,7 +27,7 @@
             android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/main_bg_bottom"
+            android:background="@color/white"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="2dp" >      

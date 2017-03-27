@@ -1256,8 +1256,8 @@ public class MainActivity extends FragmentActivityBase implements  OnActionSheet
 
 	@Override
 	protected void onDestroy() {
-		if(myReceiver != null)
-			unregisterReceiver(myReceiver);
+//		if(myReceiver != null)
+//			unregisterReceiver(myReceiver);
 		super.onDestroy();
 	}
 
