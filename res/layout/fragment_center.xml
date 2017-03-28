@@ -28,7 +28,7 @@
                 android:layout_height="60dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/myke_default"
+                android:src="@drawable/touxiang2"
                 android:contentDescription="@null"/>
             
              <TextView

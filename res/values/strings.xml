@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">得令</string>
+    <string name="app_name">互动展示系统</string>
     <string name="main_msg">小区通知</string>
     <string name="main_myl">名医录</string>
     <string name="main_pb">排班</string>

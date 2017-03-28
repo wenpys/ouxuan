@@ -177,7 +177,7 @@ OnHeaderRefreshListener, OnFooterLoadListener {
 //			Picasso.with(activity).load(MyApplication.getInstances().getAvatar())
 //				.placeholder(R.drawable.logo).into(cImg);
 //		else
-			Picasso.with(activity).load(R.drawable.logo).into(cImg);
+			Picasso.with(activity).load(R.drawable.touxiang2).into(cImg);
 		
 		Random random = new Random();
 		for(int i=0;i<3;i++){

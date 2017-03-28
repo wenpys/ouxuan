@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import cellcom.com.cn.deling.R;
 import cellcom.com.cn.net.CellComAjaxHttp;
@@ -45,20 +46,14 @@ import deling.cellcom.com.cn.widget.Header;
  * 
  */
 public class ForgetActivity extends FragmentActivityBase {
+	private ImageView ivBack;
 	private EditText countet;// 账号
 	private EditText verificationCode;// 验证码
 	private EditText etNewPwd;// 新密码
-	private EditText etCrmPwd;// 确认新密码
-	private Button btNext;// 下一步
+	private Button btOK;// 下一步
 	private Button cerificationCodeBtn;// 获取验证码
-	private LinearLayout llForgetPwd;
-	private LinearLayout llChangePwd;	
 	private YzmComm loginComm;
-	private Header header;
 	private MyCount myCount;
-	private boolean isCheck = false;
-	private boolean isResetPWD = false;
-	private String title = "";
 	
 	private BroadcastReceiver counterActionReceiver;
 
@@ -84,23 +79,6 @@ public class ForgetActivity extends FragmentActivityBase {
 	}
 
 	private void InitData() {
-		header.setBackgroundResource(R.drawable.main_nav_bg);
-		header.setLeftImageVewRes(R.drawable.main_nav_back,
-				new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						InputMethodManager inputmanger = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-						inputmanger.hideSoftInputFromWindow(
-								header.getWindowToken(), 0);
-						ForgetActivity.this.finish();
-					}
-				});
-		title = "忘记密码";
-		if(getIntent().getExtras() != null){
-			title = getIntent().getStringExtra("title");
-		}
-		header.setTitle(title, null);
 		// 接收短信广播
 		counterActionReceiver = new BroadcastReceiver() {
 
@@ -138,23 +116,29 @@ public class ForgetActivity extends FragmentActivityBase {
 	private void InitView() {
 		countet = (EditText) findViewById(R.id.countet);
 		verificationCode = (EditText) findViewById(R.id.yzmet);
-		etCrmPwd = (EditText) findViewById(R.id.qrxmmet);
-		etNewPwd = (EditText) findViewById(R.id.xmmet);
-		btNext = (Button) findViewById(R.id.nextbtn);
+		etNewPwd = (EditText) findViewById(R.id.mmet);
+		btOK = (Button) findViewById(R.id.ok);
 		cerificationCodeBtn = (Button) findViewById(R.id.yzmbtn);
-		header = (Header) findViewById(R.id.header);
-		llForgetPwd = (LinearLayout) findViewById(R.id.ll_wjmm);
-		llChangePwd = (LinearLayout) findViewById(R.id.ll_czmm);
+		ivBack = (ImageView) findViewById(R.id.leftimg);
 	}
 
 	private void InitListeners() {
-		btNext.setOnClickListener(new OnClickListener() {
+		ivBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				InputMethodManager inputmanger = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				inputmanger.hideSoftInputFromWindow(
+						countet.getWindowToken(), 0);
+				ForgetActivity.this.finish();
+			}
+		});
+		btOK.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				String countettxt = countet.getText().toString();
 				String pwdtxt = etNewPwd.getText().toString();
-				String cmpwdtxt = etCrmPwd.getText().toString();
 				String yzmettxt = verificationCode.getText().toString();
 				if (TextUtils.isEmpty(countettxt)) {
 					ShowMsg(getResources().getString(R.string.qsrzh));
@@ -172,12 +156,7 @@ public class ForgetActivity extends FragmentActivityBase {
 					verificationCode.setFocusable(true);
 					return;
 				}
-				if(llChangePwd.getVisibility() == View.GONE){
-					llForgetPwd.setVisibility(View.GONE);
-					llChangePwd.setVisibility(View.VISIBLE);
-					btNext.setText("确定");
-					return;
-				}
+				
 				if (TextUtils.isEmpty(pwdtxt)) {
 					ShowMsg(getResources().getString(R.string.qsrmm));
 					etNewPwd.setFocusable(true);
@@ -191,17 +170,8 @@ public class ForgetActivity extends FragmentActivityBase {
 					ShowMsg(getResources().getString(R.string.mmgscw));
 					return;
 				}
-				if (TextUtils.isEmpty(cmpwdtxt)) {
-					ShowMsg(getResources().getString(R.string.qsrqrmm));
-					etCrmPwd.setFocusable(true);
-					return;
-				}
-				if (!cmpwdtxt.equals(cmpwdtxt)) {
-					ShowMsg(getResources().getString(R.string.cqmmsrbyz));
-					return;
-				}
 				
-				updatePwd(countettxt, pwdtxt, yzmettxt);
+//				updatePwd(countettxt, pwdtxt, yzmettxt);
 			}
 		});
 		// yzm
@@ -218,7 +188,7 @@ public class ForgetActivity extends FragmentActivityBase {
 					ShowMsg(getResources().getString(R.string.sjhgscw));
 					return;
 				}
-				ykysSendverifysms(countettxt);
+//				ykysSendverifysms(countettxt);
 			}
 		});
 	}
@@ -255,10 +225,6 @@ public class ForgetActivity extends FragmentActivityBase {
 							ShowMsg(msg);
 							return;
 						}
-
-						llForgetPwd.setVisibility(View.GONE);
-						llChangePwd.setVisibility(View.VISIBLE);
-						header.setTitle("确定");
 					}
 				});
 
@@ -300,12 +266,9 @@ public class ForgetActivity extends FragmentActivityBase {
 						PreferencesUtils.putString(ForgetActivity.this, "phone", "");
 						PreferencesUtils.putString(ForgetActivity.this, "phone2", "");
 						PreferencesUtils.putBoolean(ForgetActivity.this, "isrememb", false);
-						if(title.equals("重置密码"))
-							ShowErrDialog("密码修改成功，请重新登录！");
-						else{
-							ShowMsg("修改密码成功");
-							finish();
-						}
+						
+						ShowMsg("修改密码成功");
+						finish();
 					}
 				});
 

@@ -57,7 +57,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/logo" />
+                        android:src="@drawable/touxiang2" />
 
                     <ImageView
                         android:layout_width="wrap_content"

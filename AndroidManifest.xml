@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cellcom.com.cn.deling"
     android:versionCode="1"
-    android:versionName="1.7" >
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -64,7 +64,7 @@
     <application
         android:name="deling.cellcom.com.cn.activity.MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:persistent="true"
         android:theme="@style/AppTheme" >
@@ -375,8 +375,6 @@
             android:enabled="true">
 		</service>
         <service android:name="com.dh.bluelock.service.BluetoothBoardService" android:enabled="true" ></service>
-		<activity android:name="deling.cellcom.com.cn.activity.me.SelectKeysActivity"></activity>
-        <activity android:name="deling.cellcom.com.cn.activity.me.AuthoDetailActivity"></activity>
         <activity android:name="deling.cellcom.com.cn.activity.me.MyKeyDetialActivity"></activity>
         <activity 
             android:name="deling.cellcom.com.cn.activity.main.KeepLiveActivity"
@@ -389,6 +387,7 @@
         </activity>
         <activity android:name="deling.cellcom.com.cn.activity.main.CallActivity"></activity>
         <activity android:name="deling.cellcom.com.cn.activity.main.SaleDetailActivity"></activity>
+        <activity android:name="deling.cellcom.com.cn.activity.me.UpdateActivity"></activity>
     </application>
 	<!-- 硬件SDK支持 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/app_bg" >
+   
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_head_height"
+        android:background="@color/white">
+        
+        <TextView 
+	        android:id="@+id/title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text=""
+   	    	android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	   	<LinearLayout 
+	   	    android:id="@+id/ll_back"
+	   	    android:layout_width="wrap_content"
+	   	    android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" >
+            
+	        <ImageView
+	            android:id="@+id/leftimg"
+	            android:layout_width="25dp"
+	            android:layout_height="25dp"
+	            android:layout_marginLeft="5dp"
+	            android:src="@drawable/main_nav_back_black"
+	            android:layout_gravity="center_vertical" />         
+	        
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_toRightOf="@+id/leftimg"
+	            android:layout_centerVertical="true"
+	            android:layout_marginRight="5dp"
+	            android:layout_gravity="center_vertical"
+	   	    	android:textAppearance="?android:attr/textAppearanceMedium" 
+	            android:text="返回" />  
+        </LinearLayout>
+        
+        <TextView
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
+   	    	android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:text="保存" />
+        
+    </RelativeLayout>
+
+   	<EditText
+   	    android:id="@+id/info"
+   	    android:layout_width="fill_parent"
+   	    android:layout_height="wrap_content"
+   	    android:layout_marginTop="10dp"
+   	    android:background="@color/white"
+   	    android:padding="10dp"
+   	    android:text="昵称"
+   	    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+   	<LinearLayout 
+   	    android:id="@+id/ll_sex"
+   	    android:layout_width="fill_parent"
+   	    android:layout_height="wrap_content"
+   	    android:layout_marginTop="10dp"
+   	    android:orientation="vertical">
+   	    
+	   	<TextView
+	   	    android:id="@+id/male"
+	   	    android:layout_width="fill_parent"
+	   	    android:layout_height="wrap_content"
+	   	    android:layout_marginTop="10dp"
+	   	    android:background="@color/white"
+	   	    android:padding="10dp"
+	   	    android:text="男 √"
+	   	    android:textAppearance="?android:attr/textAppearanceMedium" />
+   	    
+	   	<TextView
+	   	    android:id="@+id/female"
+	   	    android:layout_width="fill_parent"
+	   	    android:layout_height="wrap_content"
+	   	    android:layout_marginTop="1dp"
+	   	    android:background="@color/white"
+	   	    android:padding="10dp"
+	   	    android:text="女"
+	   	    android:textAppearance="?android:attr/textAppearanceMedium" />
+   	    
+   	</LinearLayout>
+</LinearLayout>

@@ -68,7 +68,7 @@ import deling.cellcom.com.cn.widget.CircleImageView;
  * 
  */
 public class ShowFragment extends FragmentBase {
-	private TextView tvTile;
+	private TextView tvTitle;
 	private ImageView imQrcode;
 	private ImageView imStateLight;
 	private GridView gvContent;
@@ -145,7 +145,7 @@ public class ShowFragment extends FragmentBase {
 	}
     
 	private void initView(View view) {
-		tvTile = (TextView) view.findViewById(R.id.title);
+		tvTitle = (TextView) view.findViewById(R.id.title);
 		imQrcode = (ImageView) view.findViewById(R.id.leftimg);
 		imStateLight = (ImageView) view.findViewById(R.id.statelight);
 		gvContent = (GridView) view.findViewById(R.id.gridView);
@@ -156,7 +156,7 @@ public class ShowFragment extends FragmentBase {
 	}
 
 	private void initData() {
-		tvTile.setText(getResources().getString(string.main_sale));
+		tvTitle.setText(getResources().getString(string.main_show));
 		imQrcode.setVisibility(View.GONE);
 		
 		Map<String, String> data = new HashMap<String, String>();
